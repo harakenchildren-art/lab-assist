@@ -1294,7 +1294,21 @@
         // PWA (Only register if on http/https to prevent errors in iframe/blob environments)
         if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.protocol === 'http:')) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js').catch(e => console.log("SW config:", e));
+                navigator.serviceWorker.register('./sw.js').then(reg => {
+                    // 更新が見つかった時の処理
+                    reg.addEventListener('updatefound', () => {
+                        const newWorker = reg.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            // 新しいService Workerがインストール完了し、かつ古いService Workerが既に存在する場合
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                // ユーザーに更新を促す
+                                if (confirm('最新のアップデートがあります。ページを再読み込みして更新しますか？')) {
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                }).catch(e => console.log("SW config:", e));
             });
         }
     </script>
