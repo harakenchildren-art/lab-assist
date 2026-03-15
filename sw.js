@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lab-assist-v1';
+const CACHE_NAME = 'lab-assist-v2';
 const urlsToCache = [
   './',
   './index.html',
