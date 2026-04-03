@@ -157,7 +157,7 @@
             </div>
         </div>
 
-        <!-- News Bar -->
+        <!-- News Bar (動的) -->
         <div class="bg-[#eaf4ed] border-b border-[#cce6d6]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm">
                 <div class="flex items-start sm:items-center gap-3 sm:gap-4 flex-col sm:flex-row">
@@ -167,7 +167,8 @@
                     </div>
                     <div class="hidden sm:block w-px h-4 bg-[#bbf7d0]"></div>
                     <div class="text-slate-700 flex items-center gap-2 text-sm leading-snug">
-                        <span class="text-[#359b6c] shrink-0">◆</span> 2026/3/1 原研ポータルサイトをオープン(する予定)
+                        <span class="text-[#359b6c] shrink-0">◆</span> 
+                        <span id="news-ticker-text">お知らせを取得中...</span>
                     </div>
                 </div>
                 <a href="#" class="text-slate-500 hover:text-[#359b6c] flex items-center gap-1 transition-colors self-end sm:self-auto shrink-0 mt-2 sm:mt-0">
@@ -314,6 +315,7 @@
                         </div>
                     </div>
 
+                    <!-- コミュニケーション / 動的掲示板 -->
                     <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
                         <button onclick="toggleAccordion('acc-comm')" class="w-full px-6 py-5 flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">
                             <div class="flex items-center gap-4">
@@ -327,12 +329,12 @@
                         </button>
                         <div id="content-acc-comm" class="accordion-content collapsed px-6 pb-6 pt-4 border-t border-slate-100">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="border border-slate-200 rounded-lg p-5 bg-white shadow-sm">
+                                <div class="border border-slate-200 rounded-lg p-5 bg-white shadow-sm flex flex-col">
                                     <div class="flex items-center gap-2 mb-3 text-slate-800">
                                         <i data-lucide="clipboard-list" class="w-5 h-5 text-amber-500 shrink-0"></i>
                                         <h4 class="font-bold text-sm">研究室掲示板</h4>
                                     </div>
-                                    <a href="#" class="inline-flex items-center gap-1 text-sm font-bold text-[#359b6c] hover:underline">お知らせ一覧を見る &rarr;</a>
+                                    <div id="board-content" class="text-sm text-slate-600 whitespace-pre-wrap leading-relaxed flex-1 bg-slate-50 p-3 rounded-md border border-slate-100 min-h-[80px]">情報を取得中...</div>
                                 </div>
                                 <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
                                     <div class="flex items-center gap-2 mb-3 text-slate-800">
@@ -351,7 +353,6 @@
 
     <!-- ==================== CALCULATOR VIEW ==================== -->
     <div id="view-calc" class="hidden-view">
-        <!-- Sub-page Header -->
         <div class="bg-white border-b border-slate-200">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                 <button onclick="switchAppView('home')" class="text-slate-500 hover:text-[#359b6c] flex items-center gap-2 font-bold text-sm transition-colors w-max">
@@ -368,7 +369,6 @@
                 <p class="text-slate-500 text-sm mb-0">細胞播種に必要な懸濁液量や、試薬ストックの調製・希釈を自動計算します。</p>
             </div>
 
-            <!-- Page-level Tabs -->
             <div class="flex flex-col sm:flex-row gap-3 mb-8">
                 <button id="tab-btn-well" onclick="switchMainTab('well')" class="flex-1 py-4 px-4 rounded-xl font-bold text-sm sm:text-base transition-colors bg-[#359b6c] text-white shadow-md transform hover:-translate-y-0.5 duration-200">
                     試験モード (Well Plate)
@@ -381,7 +381,7 @@
                 </button>
             </div>
 
-            <!-- 試験モード (Well Plate) コンテンツ -->
+            <!-- 試験モード -->
             <div id="content-well" class="fade-in space-y-6">
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
                     <h3 class="font-bold text-sm text-slate-800 mb-3">血球計算盤の4区画の細胞数</h3>
@@ -425,20 +425,14 @@
                 </div>
             </div>
 
-            <!-- 継代モード (Dish) コンテンツ -->
+            <!-- 継代モード -->
             <div id="content-dish" class="hidden-tab space-y-6">
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
-                    <!-- サブタブ -->
                     <div class="flex gap-2 mb-8 bg-slate-100 p-1 rounded-lg">
-                        <button id="subtab-btn-hemo" onclick="switchSubTab('hemo')" class="flex-1 py-2 rounded-md font-bold text-sm transition-colors bg-[#3b82f6] text-white shadow-sm">
-                            血球計算盤
-                        </button>
-                        <button id="subtab-btn-conf" onclick="switchSubTab('conf')" class="flex-1 py-2 rounded-md font-bold text-sm transition-colors text-slate-600 hover:text-slate-800 hover:bg-slate-200">
-                            コンフル率
-                        </button>
+                        <button id="subtab-btn-hemo" onclick="switchSubTab('hemo')" class="flex-1 py-2 rounded-md font-bold text-sm transition-colors bg-[#3b82f6] text-white shadow-sm">血球計算盤</button>
+                        <button id="subtab-btn-conf" onclick="switchSubTab('conf')" class="flex-1 py-2 rounded-md font-bold text-sm transition-colors text-slate-600 hover:text-slate-800 hover:bg-slate-200">コンフル率</button>
                     </div>
 
-                    <!-- 血球計算盤 -->
                     <div id="subcontent-hemo">
                         <h3 class="font-bold text-sm text-slate-800 mb-3">血球計算盤の4区画の細胞数</h3>
                         <div class="grid grid-cols-4 gap-2 sm:gap-4 mb-8">
@@ -449,14 +443,10 @@
                         </div>
                     </div>
 
-                    <!-- コンフル率 -->
                     <div id="subcontent-conf" class="hidden-tab">
                         <h3 class="font-bold text-sm text-slate-800 mb-2">コンフル率</h3>
                         <select id="d-conf-rate" class="w-full border border-slate-300 rounded-lg p-2.5 mb-8 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white">
-                            <option value="90">90〜100%</option>
-                            <option value="75" selected>70〜80%</option>
-                            <option value="50">40〜60%</option>
-                            <option value="30">30%以下</option>
+                            <option value="90">90〜100%</option><option value="75" selected>70〜80%</option><option value="50">40〜60%</option><option value="30">30%以下</option>
                         </select>
                     </div>
 
@@ -464,15 +454,13 @@
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">細胞種別</label>
                             <select id="d-cell" class="w-full border border-slate-300 rounded-lg p-2 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#359b6c]">
-                                <option value="hela">HeLa / HaCaT</option>
-                                <option value="caco2">Caco-2</option>
+                                <option value="hela">HeLa / HaCaT</option><option value="caco2">Caco-2</option>
                             </select>
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">Dishの種類</label>
                             <select id="d-dish" class="w-full border border-slate-300 rounded-lg p-2 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#359b6c]">
-                                <option value="10cm">10cm dish (10 mL)</option>
-                                <option value="6cm">6cm dish (5 mL)</option>
+                                <option value="10cm">10cm dish (10 mL)</option><option value="6cm">6cm dish (5 mL)</option>
                             </select>
                         </div>
                     </div>
@@ -498,20 +486,13 @@
                 </div>
             </div>
 
-            <!-- 試薬・濃度計算 (Reagent) コンテンツ -->
+            <!-- 試薬・濃度計算 -->
             <div id="content-reagent" class="hidden-tab space-y-6">
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
-                    <!-- サブタブ -->
                     <div class="flex gap-2 mb-8 bg-slate-100 p-1 rounded-lg flex-wrap sm:flex-nowrap">
-                        <button id="subtab-btn-mol" onclick="switchReagentTab('mol')" class="flex-1 py-2 px-2 rounded-md font-bold text-sm transition-colors bg-[#359b6c] text-white shadow-sm whitespace-nowrap">
-                            <i data-lucide="droplet" class="w-4 h-4 inline mr-1"></i> モル濃度希釈 (~M)
-                        </button>
-                        <button id="subtab-btn-mass" onclick="switchReagentTab('mass')" class="flex-1 py-2 px-2 rounded-md font-bold text-sm transition-colors text-slate-600 hover:text-slate-800 hover:bg-slate-200 whitespace-nowrap">
-                            <i data-lucide="test-tube" class="w-4 h-4 inline mr-1"></i> 質量濃度希釈 (~mg/mL)
-                        </button>
-                        <button id="subtab-btn-powder" onclick="switchReagentTab('powder')" class="flex-1 py-2 px-2 rounded-md font-bold text-sm transition-colors text-slate-600 hover:text-slate-800 hover:bg-slate-200 whitespace-nowrap">
-                            <i data-lucide="scale" class="w-4 h-4 inline mr-1"></i> 粉末から調製
-                        </button>
+                        <button id="subtab-btn-mol" onclick="switchReagentTab('mol')" class="flex-1 py-2 px-2 rounded-md font-bold text-sm transition-colors bg-[#359b6c] text-white shadow-sm whitespace-nowrap"><i data-lucide="droplet" class="w-4 h-4 inline mr-1"></i> モル濃度希釈 (~M)</button>
+                        <button id="subtab-btn-mass" onclick="switchReagentTab('mass')" class="flex-1 py-2 px-2 rounded-md font-bold text-sm transition-colors text-slate-600 hover:text-slate-800 hover:bg-slate-200 whitespace-nowrap"><i data-lucide="test-tube" class="w-4 h-4 inline mr-1"></i> 質量濃度希釈 (~mg/mL)</button>
+                        <button id="subtab-btn-powder" onclick="switchReagentTab('powder')" class="flex-1 py-2 px-2 rounded-md font-bold text-sm transition-colors text-slate-600 hover:text-slate-800 hover:bg-slate-200 whitespace-nowrap"><i data-lucide="scale" class="w-4 h-4 inline mr-1"></i> 粉末から調製</button>
                     </div>
 
                     <!-- モル希釈 -->
@@ -728,8 +709,61 @@
 
         // ==================== API Configuration ====================
         const apiKey = "AIzaSyBJv13K6VatdEYRbHTD2uH3G_Pp-2hTRtE"; // ※ここにAI StudioのAPIキー
-        const rulesApiUrl = "https://script.google.com/macros/s/AKfycbxFhRASWSQKCP4ZmxYU20lM8trbm3EEWJWZLMjZE3w2myyj0-slG0wvNCQcfJ94ALy1/exec"; // ※ここにGASのウェブアプリURL
+        const rulesApiUrl = "https://script.google.com/macros/s/AKfycbx4Z8sCMTSYOocX3vc30EXVq4WzQ45S6NbXu4QtdHomDW-RADBRRO_Dnd9Wy4IwdHOj/exec"; // ※ここにGASのウェブアプリURL
         
+        let globalDynamicRules = "";
+        let globalNewsText = "";
+
+        // ==================== ページ読み込み時に最新のお知らせ・ルールを取得 ====================
+        async function fetchDynamicData() {
+            if (!rulesApiUrl) return;
+            try {
+                const response = await fetch(rulesApiUrl);
+                const data = await response.json();
+                
+                if (data.rules) {
+                    globalDynamicRules = data.rules;
+                }
+                if (data.news) {
+                    globalNewsText = data.news;
+                    
+                    // 「最新情報」バーの更新（1行目を抽出して表示）
+                    const newsLines = data.news.split('\n').filter(l => l.trim().length > 0);
+                    const firstLine = newsLines.length > 0 ? newsLines[0] : "新しいお知らせはありません";
+                    const tickerEl = document.getElementById('news-ticker-text');
+                    if (tickerEl) tickerEl.innerText = firstLine;
+
+                    // 「研究室掲示板」の更新
+                    const boardEl = document.getElementById('board-content');
+                    if (boardEl) boardEl.innerText = data.news;
+                }
+            } catch (e) {
+                console.log("Failed to fetch dynamic data:", e);
+                const boardEl = document.getElementById('board-content');
+                if (boardEl) boardEl.innerText = "情報の取得に失敗しました。";
+                const tickerEl = document.getElementById('news-ticker-text');
+                if (tickerEl) tickerEl.innerText = "お知らせの取得に失敗しました";
+            }
+        }
+        
+        window.addEventListener('DOMContentLoaded', fetchDynamicData);
+
+        // ==================== AI Advisor Logic ====================
+        async function fetchWithRetry(url, options, maxRetries = 5) {
+            let delay = 1000;
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    // Gemini APIのエラー(400番台など)も一旦返して内容を確認する
+                    return response;
+                } catch (e) {
+                    if (i === maxRetries - 1) throw e;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
         async function askGemini() {
             const input = document.getElementById('ai-input').value;
             if(!input.trim()) return;
@@ -737,7 +771,7 @@
             const resultDiv = document.getElementById('ai-result');
             const btn = document.getElementById('ai-btn');
             
-            resultDiv.innerHTML = `<div class="text-center py-10 bg-slate-50 rounded-xl border border-slate-100"><i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto text-[#c026d3] mb-3"></i><p class="text-sm font-bold text-slate-600 mt-2">最新のルールを確認して回答を作成中...</p></div>`;
+            resultDiv.innerHTML = `<div class="text-center py-10 bg-slate-50 rounded-xl border border-slate-100"><i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto text-[#c026d3] mb-3"></i><p class="text-sm font-bold text-slate-600 mt-2">回答を作成中...</p></div>`;
             resultDiv.classList.remove('hidden');
             lucide.createIcons();
             
@@ -745,23 +779,13 @@
             btn.classList.add('opacity-50', 'cursor-not-allowed');
             
             try {
-                // 1. GASから最新のドキュメント内容を取得
-                let dynamicRules = "※最新ルールの取得に失敗しました。一般的な科学知識で回答します。";
-                if(rulesApiUrl) {
-                    try {
-                        const rulesRes = await fetch(rulesApiUrl);
-                        const rulesData = await rulesRes.json();
-                        dynamicRules = rulesData.rules;
-                    } catch(e) { console.log("Rules Fetch Error:", e); }
-                }
-
-                // 2. システムプロンプトを構築
+                // システムプロンプトを構築（グローバルに取得済みのルールを使用）
                 const systemPrompt = `
 あなたは「原太一研究室（Hara-lab）」専用のAIアシスタントです。
 以下の【Googleドライブから取得した最新の研究室ルール】を最優先の知識として回答してください。
 
 【最新の研究室ルール・SOP】
-${dynamicRules}
+${globalDynamicRules || "※最新ルールの取得に失敗しました。一般的な科学知識で回答してください。"}
 
 【回答スタイル】
 - 丁寧な日本語。マークダウンは使わずテキストと改行のみで構成。
@@ -773,22 +797,30 @@ ${dynamicRules}
                     systemInstruction: { parts: [{ text: systemPrompt }] }
                 };
                 
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                const response = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
                 
                 const data = await response.json();
-                const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
                 
-                if (text) {
+                // エラー内容をキャッチして画面に表示する
+                if (data.error) {
+                    resultDiv.innerHTML = `
+                        <div class="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200">
+                            <p class="font-bold mb-2">⚠️ エラーが発生しました</p>
+                            <p class="text-sm font-mono bg-white p-2 rounded border border-red-100 mb-2">${data.error.message}</p>
+                            <p class="text-xs text-slate-700">※原因の多くは「APIキーのウェブサイト制限のURLが間違っている」か、「GitHubではなくローカル環境（Canvas等）で実行している」ためです。</p>
+                        </div>`;
+                } else if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
+                    const text = data.candidates[0].content.parts[0].text;
                     resultDiv.innerHTML = `<div class="bg-[#fdf4ff] p-6 sm:p-8 rounded-xl border border-[#f0abfc] shadow-sm"><h4 class="font-bold text-[#a21caf] mb-5 flex items-center gap-2 text-lg"><i data-lucide="sparkles" class="w-5 h-5"></i> AIからのアドバイス</h4><div class="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">${text.replace(/\n/g, '<br>')}</div></div>`;
                 } else {
                     resultDiv.innerHTML = `<div class="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200 font-bold">回答を取得できませんでした。</div>`;
                 }
             } catch (e) {
-                resultDiv.innerHTML = `<div class="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200 font-bold">通信エラーが発生しました。<br><span class="text-sm font-normal text-slate-700 mt-2 block">※回答が取得できない場合、APIキーが設定されていない可能性があります。GitHub Pages等で公開している場合は、コード内の apiKey 変数にご自身のキーを入力してください。</span></div>`;
+                resultDiv.innerHTML = `<div class="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200 font-bold">通信エラーが発生しました。<br><span class="text-sm font-normal text-slate-700 mt-2 block">※インターネット接続を確認してください。</span></div>`;
             } finally {
                 btn.disabled = false; btn.classList.remove('opacity-50', 'cursor-not-allowed'); lucide.createIcons();
             }
@@ -1157,9 +1189,9 @@ ${dynamicRules}
                     }
                 });
             }
-            // 少し待ってから強制リロード
+            // 少し待ってからキャッシュを無視して強制リロード
             setTimeout(() => {
-                window.location.reload(true);
+                window.location.href = window.location.href.split('?')[0] + '?_t=' + new Date().getTime();
             }, 500);
         }
 
@@ -1173,7 +1205,13 @@ ${dynamicRules}
                         newWorker.addEventListener('statechange', () => {
                             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
                                 if (confirm('最新のアップデートがあります。ページを再読み込みして更新しますか？')) {
-                                    window.location.reload();
+                                    // キャッシュを削除してからリロードする
+                                    if ('caches' in window) {
+                                        caches.keys().then(names => { for (let name of names) caches.delete(name); });
+                                    }
+                                    setTimeout(() => {
+                                        window.location.href = window.location.href.split('?')[0] + '?_t=' + new Date().getTime();
+                                    }, 300);
                                 }
                             }
                         });
