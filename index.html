@@ -236,22 +236,26 @@
                             </div>
                             <h4 class="font-bold text-sm text-slate-800 mb-4 flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i> 実験マニュアル (SOP)</h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-8">
-                                <a href="#" class="flex items-center gap-3 text-slate-700 hover:text-[#359b6c] transition-colors group">
-                                    <i data-lucide="book" class="w-4 h-4 text-[#359b6c] group-hover:scale-110 transition-transform shrink-0"></i>
-                                    <span class="text-sm font-medium">実験スタートガイド</span>
-                                </a>
-                                <a href="#" class="flex items-center gap-3 text-slate-700 hover:text-[#359b6c] transition-colors group">
+                                <a href="https://docs.google.com/document/d/1QnI1LcTMwH3aBE9FWztJdUZ1IATd48f_rj1lWa_QUx8/edit?usp=sharing" target="_blank" class="flex items-center gap-3 text-slate-700 hover:text-[#359b6c] transition-colors group">
                                     <i data-lucide="flask-round" class="w-4 h-4 text-[#359b6c] group-hover:scale-110 transition-transform shrink-0"></i>
                                     <span class="text-sm font-medium">細胞培養 SOP</span>
                                 </a>
-                                <a href="#" class="flex items-center gap-3 text-slate-700 hover:text-[#359b6c] transition-colors group">
+                                <a href="https://docs.google.com/document/d/1sjJ4CcdnxVXUcDFx9tAe66QATn0iBBgfWVSC5z_fcTU/edit?usp=sharing" target="_blank" class="flex items-center gap-3 text-slate-700 hover:text-[#359b6c] transition-colors group">
                                     <i data-lucide="activity" class="w-4 h-4 text-[#359b6c] group-hover:scale-110 transition-transform shrink-0"></i>
                                     <span class="text-sm font-medium">オートファジー活性測定 SOP</span>
                                 </a>
-                                <a href="#" class="flex items-center gap-3 text-slate-700 hover:text-[#359b6c] transition-colors group">
+                                <a href="https://docs.google.com/document/d/1GbevK_pSOmueG2WXpz7LO5QnQbO3l4CBVDxGTf7RmhQ/edit?usp=sharing" target="_blank" class="flex items-center gap-3 text-slate-700 hover:text-[#359b6c] transition-colors group">
                                     <i data-lucide="layers" class="w-4 h-4 text-[#359b6c] group-hover:scale-110 transition-transform shrink-0"></i>
                                     <span class="text-sm font-medium">Western Blotting SOP</span>
                                 </a>
+                                <a href="https://docs.google.com/document/d/1rT-975TdmUuyLMeQWgdoWVVPKMkVgolI0xv1A-bKV3w/edit?usp=sharing" target="_blank" class="flex items-center gap-3 text-slate-700 hover:text-[#359b6c] transition-colors group">
+                                    <i data-lucide="dna" class="w-4 h-4 text-[#359b6c] group-hover:scale-110 transition-transform shrink-0"></i>
+                                    <span class="text-sm font-medium">qPCR SOP</span>
+                                </a>
+                                <div class="flex items-center gap-3 text-slate-400">
+                                    <i data-lucide="book" class="w-4 h-4 shrink-0"></i>
+                                    <span class="text-sm font-medium">実験スタートガイド (準備中)</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -361,7 +365,7 @@
                 <h2 class="text-2xl font-bold flex items-center gap-2 mb-2 text-slate-800">
                     <i data-lucide="calculator" class="w-7 h-7 text-[#359b6c]"></i> 実験計算ツール
                 </h2>
-                <p class="text-slate-500 text-sm mb-0">細胞播種に必要な懸濁液量や、試薬の濃度・希釈を自動計算します。</p>
+                <p class="text-slate-500 text-sm mb-0">細胞播種に必要な懸濁液量や、試薬ストックの調製・希釈を自動計算します。</p>
             </div>
 
             <!-- Page-level Tabs -->
@@ -500,10 +504,10 @@
                     <!-- サブタブ -->
                     <div class="flex gap-2 mb-8 bg-slate-100 p-1 rounded-lg flex-wrap sm:flex-nowrap">
                         <button id="subtab-btn-mol" onclick="switchReagentTab('mol')" class="flex-1 py-2 px-2 rounded-md font-bold text-sm transition-colors bg-[#359b6c] text-white shadow-sm whitespace-nowrap">
-                            <i data-lucide="droplet" class="w-4 h-4 inline mr-1"></i> モル希釈
+                            <i data-lucide="droplet" class="w-4 h-4 inline mr-1"></i> モル濃度希釈 (~M)
                         </button>
                         <button id="subtab-btn-mass" onclick="switchReagentTab('mass')" class="flex-1 py-2 px-2 rounded-md font-bold text-sm transition-colors text-slate-600 hover:text-slate-800 hover:bg-slate-200 whitespace-nowrap">
-                            <i data-lucide="test-tube" class="w-4 h-4 inline mr-1"></i> 質量希釈
+                            <i data-lucide="test-tube" class="w-4 h-4 inline mr-1"></i> 質量濃度希釈 (~mg/mL)
                         </button>
                         <button id="subtab-btn-powder" onclick="switchReagentTab('powder')" class="flex-1 py-2 px-2 rounded-md font-bold text-sm transition-colors text-slate-600 hover:text-slate-800 hover:bg-slate-200 whitespace-nowrap">
                             <i data-lucide="scale" class="w-4 h-4 inline mr-1"></i> 粉末から調製
@@ -512,50 +516,41 @@
 
                     <!-- モル希釈 -->
                     <div id="subcontent-mol">
-                        <div class="bg-blue-50 border border-blue-100 rounded-lg p-3 mb-6 flex gap-2 text-sm text-blue-800">
-                            <i data-lucide="info" class="w-4 h-4 mt-0.5 shrink-0"></i>
-                            <p>原液のモル濃度から目的のモル濃度へ希釈する計算を行います。<br>必要量が微量(2µL未満)になる高倍率希釈の場合は、自動で段階希釈を提案します。</p>
+                        <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6 flex gap-3 text-sm text-blue-800">
+                            <i data-lucide="info" class="w-5 h-5 mt-0.5 shrink-0 text-blue-600"></i>
+                            <div>
+                                <p class="mb-1">原液から実験用のストック溶液への希釈計算を行います。</p>
+                                <p class="font-bold text-[#075985]">※ 培地への最終添加量を 0.1% Volume とする場合、目的濃度（ストック濃度）は『最終濃度の1000倍』になるように設定してください。</p>
+                            </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div>
                                 <h3 class="font-bold text-sm text-slate-800 mb-2">原液濃度</h3>
                                 <div class="flex gap-2">
-                                    <input type="number" id="r-mol-c1" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 9.7">
-                                    <select id="r-mol-c1-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
-                                        <option value="M">M</option><option value="mM">mM</option><option value="uM">µM</option><option value="nM">nM</option>
+                                    <input type="number" id="r-mol-c1" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 10">
+                                    <select id="r-mol-c1-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
+                                        <option value="M">M</option><option value="mM" selected>mM</option><option value="uM">µM</option><option value="nM">nM</option>
                                     </select>
                                 </div>
                             </div>
                             <div>
-                                <h3 class="font-bold text-sm text-slate-800 mb-2">目的濃度</h3>
+                                <h3 class="font-bold text-sm text-slate-800 mb-2">目的濃度 (ストック濃度)</h3>
                                 <div class="flex gap-2">
-                                    <input type="number" id="r-mol-c2" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 400">
-                                    <select id="r-mol-c2-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
-                                        <option value="M">M</option><option value="mM">mM</option><option value="uM" selected>µM</option><option value="nM">nM</option>
+                                    <input type="number" id="r-mol-c2" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 1">
+                                    <select id="r-mol-c2-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
+                                        <option value="M">M</option><option value="mM" selected>mM</option><option value="uM">µM</option><option value="nM">nM</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
 
-                        <h3 class="font-bold text-sm text-slate-800 mb-2">作成液量</h3>
-                        <div class="flex gap-2 mb-6 sm:w-1/2">
-                            <input type="number" id="r-mol-v2" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 1">
-                            <select id="r-mol-v2-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
-                                <option value="mL">mL</option><option value="uL">µL</option>
+                        <h3 class="font-bold text-sm text-slate-800 mb-2">ストック作成液量</h3>
+                        <div class="flex gap-2 mb-8 sm:w-1/2">
+                            <input type="number" id="r-mol-v2" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 100">
+                            <select id="r-mol-v2-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
+                                <option value="mL">mL</option><option value="uL" selected>µL</option>
                             </select>
-                        </div>
-
-                        <h3 class="font-bold text-sm text-slate-800 mb-2">最終溶媒Volume (添加%)</h3>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <button type="button" class="svol-btn-mol px-4 py-2 rounded-lg text-sm font-bold bg-[#359b6c] text-white transition-colors" data-val="0.1">0.1%</button>
-                            <button type="button" class="svol-btn-mol px-4 py-2 rounded-lg text-sm font-bold bg-[#e2e8f0] text-slate-700 transition-colors" data-val="1">1%</button>
-                            <button type="button" class="svol-btn-mol px-4 py-2 rounded-lg text-sm font-bold bg-[#e2e8f0] text-slate-700 transition-colors" data-val="5">5%</button>
-                            <button type="button" class="svol-btn-mol px-4 py-2 rounded-lg text-sm font-bold bg-[#e2e8f0] text-slate-700 transition-colors" data-val="10">10%</button>
-                            <div class="relative w-24 shrink-0">
-                                <input type="number" id="r-mol-svol-other" class="w-full min-w-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none text-sm pr-6" placeholder="任意">
-                                <span class="absolute right-2 top-2 text-sm text-slate-500">%</span>
-                            </div>
                         </div>
 
                         <div class="flex gap-4">
@@ -567,50 +562,41 @@
 
                     <!-- 質量希釈 -->
                     <div id="subcontent-mass" class="hidden-tab">
-                        <div class="bg-blue-50 border border-blue-100 rounded-lg p-3 mb-6 flex gap-2 text-sm text-blue-800">
-                            <i data-lucide="info" class="w-4 h-4 mt-0.5 shrink-0"></i>
-                            <p>原液の質量濃度(mg/mL等)から目的の濃度へ希釈する計算を行います。</p>
+                        <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6 flex gap-3 text-sm text-blue-800">
+                            <i data-lucide="info" class="w-5 h-5 mt-0.5 shrink-0 text-blue-600"></i>
+                            <div>
+                                <p class="mb-1">原液から実験用のストック溶液への希釈計算を行います。</p>
+                                <p class="font-bold text-[#075985]">※ 培地への最終添加量を 0.1% Volume とする場合、目的濃度（ストック濃度）は『最終濃度の1000倍』になるように設定してください。</p>
+                            </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div>
                                 <h3 class="font-bold text-sm text-slate-800 mb-2">原液濃度</h3>
                                 <div class="flex gap-2">
-                                    <input type="number" id="r-mass-c1" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 10">
-                                    <select id="r-mass-c1-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
+                                    <input type="number" id="r-mass-c1" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 10">
+                                    <select id="r-mass-c1-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
                                         <option value="mg">mg/mL</option><option value="ug">µg/mL</option><option value="ng">ng/mL</option>
                                     </select>
                                 </div>
                             </div>
                             <div>
-                                <h3 class="font-bold text-sm text-slate-800 mb-2">目的濃度</h3>
+                                <h3 class="font-bold text-sm text-slate-800 mb-2">目的濃度 (ストック濃度)</h3>
                                 <div class="flex gap-2">
-                                    <input type="number" id="r-mass-c2" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 25">
-                                    <select id="r-mass-c2-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
+                                    <input type="number" id="r-mass-c2" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 1">
+                                    <select id="r-mass-c2-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
                                         <option value="mg">mg/mL</option><option value="ug" selected>µg/mL</option><option value="ng">ng/mL</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
 
-                        <h3 class="font-bold text-sm text-slate-800 mb-2">作成液量</h3>
-                        <div class="flex gap-2 mb-6 sm:w-1/2">
-                            <input type="number" id="r-mass-v2" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 500">
-                            <select id="r-mass-v2-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
+                        <h3 class="font-bold text-sm text-slate-800 mb-2">ストック作成液量</h3>
+                        <div class="flex gap-2 mb-8 sm:w-1/2">
+                            <input type="number" id="r-mass-v2" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 500">
+                            <select id="r-mass-v2-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
                                 <option value="mL">mL</option><option value="uL" selected>µL</option>
                             </select>
-                        </div>
-
-                        <h3 class="font-bold text-sm text-slate-800 mb-2">最終溶媒Volume (添加%)</h3>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <button type="button" class="svol-btn-mass px-4 py-2 rounded-lg text-sm font-bold bg-[#359b6c] text-white transition-colors" data-val="0.1">0.1%</button>
-                            <button type="button" class="svol-btn-mass px-4 py-2 rounded-lg text-sm font-bold bg-[#e2e8f0] text-slate-700 transition-colors" data-val="1">1%</button>
-                            <button type="button" class="svol-btn-mass px-4 py-2 rounded-lg text-sm font-bold bg-[#e2e8f0] text-slate-700 transition-colors" data-val="5">5%</button>
-                            <button type="button" class="svol-btn-mass px-4 py-2 rounded-lg text-sm font-bold bg-[#e2e8f0] text-slate-700 transition-colors" data-val="10">10%</button>
-                            <div class="relative w-24 shrink-0">
-                                <input type="number" id="r-mass-svol-other" class="w-full min-w-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none text-sm pr-6" placeholder="任意">
-                                <span class="absolute right-2 top-2 text-sm text-slate-500">%</span>
-                            </div>
                         </div>
 
                         <div class="flex gap-4">
@@ -622,31 +608,34 @@
 
                     <!-- 粉末から調製 -->
                     <div id="subcontent-powder" class="hidden-tab">
-                        <div class="bg-blue-50 border border-blue-100 rounded-lg p-3 mb-6 flex gap-2 text-sm text-blue-800">
-                            <i data-lucide="info" class="w-4 h-4 mt-0.5 shrink-0"></i>
-                            <p>試薬の分子量と目的のモル濃度を入力し、必要な粉末の質量(mg等)を計算します。</p>
+                        <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6 flex gap-3 text-sm text-blue-800">
+                            <i data-lucide="info" class="w-5 h-5 mt-0.5 shrink-0 text-blue-600"></i>
+                            <div>
+                                <p class="mb-1">試薬の分子量と目的のストック濃度を入力し、必要な粉末の質量を計算します。</p>
+                                <p class="font-bold text-[#075985]">※ 培地への最終添加量を 0.1% Volume とする場合、目的濃度（ストック濃度）は『最終濃度の1000倍』になるように設定してください。</p>
+                            </div>
                         </div>
 
                         <h3 class="font-bold text-sm text-slate-800 mb-2">分子量 (Mw)</h3>
                         <div class="mb-4 sm:w-1/2">
-                            <input type="number" id="r-pow-mw" class="w-full min-w-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 58.44 (NaCl)">
+                            <input type="number" id="r-pow-mw" class="w-full min-w-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 58.44 (NaCl)">
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                             <div>
-                                <h3 class="font-bold text-sm text-slate-800 mb-2">目的濃度</h3>
+                                <h3 class="font-bold text-sm text-slate-800 mb-2">目的濃度 (ストック濃度)</h3>
                                 <div class="flex gap-2">
-                                    <input type="number" id="r-pow-c" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 1">
-                                    <select id="r-pow-c-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
-                                        <option value="M">M</option><option value="mM">mM</option><option value="uM">µM</option><option value="nM">nM</option>
+                                    <input type="number" id="r-pow-c" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 1">
+                                    <select id="r-pow-c-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
+                                        <option value="M">M</option><option value="mM" selected>mM</option><option value="uM">µM</option><option value="nM">nM</option>
                                     </select>
                                 </div>
                             </div>
                             <div>
-                                <h3 class="font-bold text-sm text-slate-800 mb-2">作成液量</h3>
+                                <h3 class="font-bold text-sm text-slate-800 mb-2">ストック作成液量</h3>
                                 <div class="flex gap-2">
-                                    <input type="number" id="r-pow-v" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 50">
-                                    <select id="r-pow-v-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
+                                    <input type="number" id="r-pow-v" class="flex-1 min-w-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none" placeholder="例: 50">
+                                    <select id="r-pow-v-unit" class="w-24 shrink-0 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white font-bold text-sm">
                                         <option value="L">L</option><option value="mL" selected>mL</option><option value="uL">µL</option>
                                     </select>
                                 </div>
@@ -728,7 +717,7 @@
     <!-- Footer with Force Update Button -->
     <footer class="bg-white border-t border-slate-200 mt-12 py-8 flex flex-col items-center">
         <p class="text-sm text-slate-500 mb-4">&copy; 2026 Hara lab. All rights reserved.</p>
-        <button onclick="forceUpdateApp()" class="text-xs font-bold text-slate-400 hover:text-[#359b6c] flex items-center gap-1.5 transition-colors border border-slate-200 px-3 py-1.5 rounded-full bg-slate-50 hover:bg-green-50">
+        <button onclick="forceUpdateApp()" class="text-xs font-bold text-slate-400 hover:text-[#359b6c] flex items-center gap-1.5 transition-colors border border-slate-200 px-3 py-1.5 rounded-full bg-slate-50 hover:bg-green-50 shadow-sm">
             <i data-lucide="refresh-cw" class="w-3 h-3"></i> アプリを最新版に強制更新する
         </button>
     </footer>
@@ -737,50 +726,10 @@
     <script>
         lucide.createIcons();
 
-        // ==================== Gemini API Configuration ====================
-        const apiKey = ""; // ※ここにAPIキーを入れてください
-
-        const LAB_KNOWLEDGE = `
-あなたは「原太一研究室（Hara-lab）」専用のAIアシスタントです。
-以下の【研究室SOP・ルール】を最優先の知識として回答してください。ここにない情報は一般的な科学的知識で補ってください。
-
-【研究室の基本ルール】
-- 培養室の予約：Googleカレンダーへ入力が必須。
-- 備品補充：消耗品（チップ、チューブ等）の最後の1つを開けた者が、必ず指定のホワイトボードに記入すること。
-- 清掃：担当表（2026.01.26更新版）を確認して実施。
-
-【実験プロトコル (SOP) 抜粋】
-- 細胞播種の目標密度:
-  * 12-well: HeLa/HaCaT(6.0e4), Caco-2(1.2e5) cells/well
-  * 24-well: HeLa/HaCaT(3.0e4), Caco-2(6.0e4) cells/well
-  * 96-well: HeLa/HaCaT(5.0e3), Caco-2(1.0e4) cells/well
-- 試薬希釈：最終溶媒Volume（DMSO等）は原則0.1%を推奨。水なら10%まで許容。
-- 継代：トリプシン処理時間はHeLaで約3-5分、HaCaTは少し長め。剥がれにくい場合は37℃インキュベータへ。
-
-【回答スタイル】
-- 丁寧な日本語。
-- マークダウンは使わず、テキストと改行で構成して読みやすくする。
-- 「研究室のルールでは〜」「一般的には〜」と情報源を分けると親切。
-        `;
-
-        async function fetchWithRetry(url, options, maxRetries = 5) {
-            let delay = 1000;
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    const response = await fetch(url, options);
-                    if (!response.ok) {
-                        if (response.status === 429 || response.status >= 500) throw new Error(`HTTP error! status: ${response.status}`);
-                        return response;
-                    }
-                    return response;
-                } catch (e) {
-                    if (i === maxRetries - 1) throw e;
-                    await new Promise(resolve => setTimeout(resolve, delay));
-                    delay *= 2;
-                }
-            }
-        }
-
+        // ==================== API Configuration ====================
+        const apiKey = "AIzaSyBJv13K6VatdEYRbHTD2uH3G_Pp-2hTRtE"; // ※ここにAI StudioのAPIキー
+        const rulesApiUrl = "https://script.google.com/macros/s/AKfycbxFhRASWSQKCP4ZmxYU20lM8trbm3EEWJWZLMjZE3w2myyj0-slG0wvNCQcfJ94ALy1/exec"; // ※ここにGASのウェブアプリURL
+        
         async function askGemini() {
             const input = document.getElementById('ai-input').value;
             if(!input.trim()) return;
@@ -788,11 +737,7 @@
             const resultDiv = document.getElementById('ai-result');
             const btn = document.getElementById('ai-btn');
             
-            resultDiv.innerHTML = `
-                <div class="text-center py-10 bg-slate-50 rounded-xl border border-slate-100">
-                    <i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto text-[#c026d3] mb-3"></i>
-                    <p class="text-sm font-bold text-slate-600 mt-2">AIが回答を作成中...</p>
-                </div>`;
+            resultDiv.innerHTML = `<div class="text-center py-10 bg-slate-50 rounded-xl border border-slate-100"><i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto text-[#c026d3] mb-3"></i><p class="text-sm font-bold text-slate-600 mt-2">最新のルールを確認して回答を作成中...</p></div>`;
             resultDiv.classList.remove('hidden');
             lucide.createIcons();
             
@@ -800,12 +745,35 @@
             btn.classList.add('opacity-50', 'cursor-not-allowed');
             
             try {
+                // 1. GASから最新のドキュメント内容を取得
+                let dynamicRules = "※最新ルールの取得に失敗しました。一般的な科学知識で回答します。";
+                if(rulesApiUrl) {
+                    try {
+                        const rulesRes = await fetch(rulesApiUrl);
+                        const rulesData = await rulesRes.json();
+                        dynamicRules = rulesData.rules;
+                    } catch(e) { console.log("Rules Fetch Error:", e); }
+                }
+
+                // 2. システムプロンプトを構築
+                const systemPrompt = `
+あなたは「原太一研究室（Hara-lab）」専用のAIアシスタントです。
+以下の【Googleドライブから取得した最新の研究室ルール】を最優先の知識として回答してください。
+
+【最新の研究室ルール・SOP】
+${dynamicRules}
+
+【回答スタイル】
+- 丁寧な日本語。マークダウンは使わずテキストと改行のみで構成。
+- ルールに基づいた回答と、一般的な科学的見解を分けて伝えると親切です。
+                `;
+                
                 const payload = {
                     contents: [{ parts: [{ text: input }] }],
-                    systemInstruction: { parts: [{ text: LAB_KNOWLEDGE }] }
+                    systemInstruction: { parts: [{ text: systemPrompt }] }
                 };
                 
-                const response = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
@@ -815,79 +783,23 @@
                 const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
                 
                 if (text) {
-                    const formattedText = text.replace(/\n/g, '<br>');
-                    resultDiv.innerHTML = `
-                        <div class="bg-[#fdf4ff] p-6 sm:p-8 rounded-xl border border-[#f0abfc] shadow-sm">
-                            <h4 class="font-bold text-[#a21caf] mb-5 flex items-center gap-2 text-lg">
-                                <i data-lucide="sparkles" class="w-5 h-5"></i> AIからのアドバイス
-                            </h4>
-                            <div class="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">${formattedText}</div>
-                        </div>`;
+                    resultDiv.innerHTML = `<div class="bg-[#fdf4ff] p-6 sm:p-8 rounded-xl border border-[#f0abfc] shadow-sm"><h4 class="font-bold text-[#a21caf] mb-5 flex items-center gap-2 text-lg"><i data-lucide="sparkles" class="w-5 h-5"></i> AIからのアドバイス</h4><div class="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">${text.replace(/\n/g, '<br>')}</div></div>`;
                 } else {
                     resultDiv.innerHTML = `<div class="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200 font-bold">回答を取得できませんでした。</div>`;
                 }
             } catch (e) {
-                // エラー時のメッセージを親切なものに変更（APIキー未設定の案内を追加）
-                resultDiv.innerHTML = `
-                    <div class="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200 font-bold">
-                        通信エラーが発生しました。<br>
-                        <span class="text-sm font-normal text-slate-700 mt-2 block">※回答が取得できない場合、APIキーが設定されていない可能性があります。GitHub Pages等で公開している場合は、コード内の apiKey 変数にご自身のキーを入力してください。</span>
-                    </div>`;
+                resultDiv.innerHTML = `<div class="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200 font-bold">通信エラーが発生しました。<br><span class="text-sm font-normal text-slate-700 mt-2 block">※回答が取得できない場合、APIキーが設定されていない可能性があります。GitHub Pages等で公開している場合は、コード内の apiKey 変数にご自身のキーを入力してください。</span></div>`;
             } finally {
-                btn.disabled = false;
-                btn.classList.remove('opacity-50', 'cursor-not-allowed');
-                lucide.createIcons();
+                btn.disabled = false; btn.classList.remove('opacity-50', 'cursor-not-allowed'); lucide.createIcons();
             }
         }
 
         // ==================== View & Tab UI Logic ====================
-        function switchAppView(view) {
-            document.getElementById('view-home').classList.add('hidden-view');
-            document.getElementById('view-calc').classList.add('hidden-view');
-            document.getElementById('view-ai').classList.add('hidden-view');
-
-            if (view === 'calc') {
-                document.getElementById('view-calc').classList.remove('hidden-view');
-            } else if (view === 'ai') {
-                document.getElementById('view-ai').classList.remove('hidden-view');
-            } else {
-                document.getElementById('view-home').classList.remove('hidden-view');
-            }
-            window.scrollTo(0, 0);
-        }
+        function switchAppView(view) { document.getElementById('view-home').classList.add('hidden-view'); document.getElementById('view-calc').classList.add('hidden-view'); document.getElementById('view-ai').classList.add('hidden-view'); document.getElementById('view-' + view).classList.remove('hidden-view'); window.scrollTo(0, 0); }
+        function toggleMenu(e) { if(e) e.stopPropagation(); const menu = document.getElementById('dropdown-menu'); menu.classList.toggle('hidden'); if(!menu.classList.contains('hidden')) menu.classList.add('dropdown-enter'); }
+        document.addEventListener('click', (e) => { const menu = document.getElementById('dropdown-menu'); const btn = document.getElementById('menu-btn'); if (menu && !menu.classList.contains('hidden') && !menu.contains(e.target) && !btn.contains(e.target)) menu.classList.add('hidden'); });
+        function toggleAccordion(id) { const content = document.getElementById('content-' + id); const icon = document.getElementById('icon-' + id); content.classList.toggle('collapsed'); icon.classList.toggle('rotate-180-custom'); }
         
-        function toggleMenu(e) {
-            if(e) e.stopPropagation();
-            const menu = document.getElementById('dropdown-menu');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-                menu.classList.add('dropdown-enter');
-            } else {
-                menu.classList.add('hidden');
-                menu.classList.remove('dropdown-enter');
-            }
-        }
-        
-        document.addEventListener('click', (e) => {
-            const menu = document.getElementById('dropdown-menu');
-            const btn = document.getElementById('menu-btn');
-            if (menu && !menu.classList.contains('hidden') && !menu.contains(e.target) && !btn.contains(e.target)) {
-                menu.classList.add('hidden');
-            }
-        });
-
-        function toggleAccordion(id) {
-            const content = document.getElementById('content-' + id);
-            const icon = document.getElementById('icon-' + id);
-            if (content.classList.contains('collapsed')) {
-                content.classList.remove('collapsed');
-                icon.classList.add('rotate-180-custom');
-            } else {
-                content.classList.add('collapsed');
-                icon.classList.remove('rotate-180-custom');
-            }
-        }
-
         function switchMainTab(mode) {
             ['well', 'dish', 'reagent'].forEach(t => {
                 document.getElementById('content-' + t).classList.add('hidden-tab');
@@ -1148,101 +1060,31 @@
         }
 
         // ==================== REAGENT MODE ====================
-        let targetPctMol = 0.1, targetPctMass = 0.1;
-        function setupSVolBtns(mode) {
-            const btns = document.querySelectorAll(`.svol-btn-${mode}`);
-            const otherInput = document.getElementById(`r-${mode}-svol-other`);
-            btns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    btns.forEach(b => { b.classList.remove('bg-[#359b6c]', 'text-white'); b.classList.add('bg-[#e2e8f0]', 'text-slate-700'); });
-                    e.target.classList.remove('bg-[#e2e8f0]', 'text-slate-700'); e.target.classList.add('bg-[#359b6c]', 'text-white');
-                    if(mode === 'mol') targetPctMol = parseFloat(e.target.dataset.val);
-                    if(mode === 'mass') targetPctMass = parseFloat(e.target.dataset.val);
-                    otherInput.value = '';
-                });
-            });
-            otherInput.addEventListener('input', (e) => {
-                let val = parseFloat(e.target.value);
-                if (!isNaN(val) && val > 0) {
-                    btns.forEach(b => { b.classList.remove('bg-[#359b6c]', 'text-white'); b.classList.add('bg-[#e2e8f0]', 'text-slate-700'); });
-                    if(mode === 'mol') targetPctMol = val;
-                    if(mode === 'mass') targetPctMass = val;
-                }
-            });
-        }
-
         const unitMultipliersMol = { 'M': 1e9, 'mM': 1e6, 'uM': 1e3, 'nM': 1 };
         const unitMultipliersMass = { 'mg': 1e6, 'ug': 1e3, 'ng': 1 }; // Base: ng/mL
         const unitMultipliersVol = { 'L': 1e6, 'mL': 1e3, 'uL': 1 }; // Base: uL
 
-        // 段階希釈を含む計算エンジン
-        function generateDilutionSteps(c1_base, c2_base, v2_uL, type, target_pct) {
-            let req_direct_uL = v2_uL * (c2_base / c1_base);
-            let actual_direct_pct = (req_direct_uL / v2_uL) * 100;
-            
-            // 溶媒Volumeオーバーの場合
-            if (actual_direct_pct > target_pct + 1e-5) {
-                let take_v = Math.round(req_direct_uL * 10) / 10;
-                let sol_v = v2_uL - take_v;
-                
-                let card1Val = take_v >= 1000 ? (take_v/1000).toFixed(2) + ' <span class="text-xl font-normal">mL</span>' : take_v.toFixed(1) + ' <span class="text-xl font-normal">µL</span>';
-                let card2Val = sol_v >= 1000 ? (sol_v/1000).toFixed(2) + ' <span class="text-xl font-normal">mL</span>' : sol_v.toFixed(1) + ' <span class="text-xl font-normal">µL</span>';
-                
-                let stepsHtml = makeStep(1, "溶媒Volumeオーバー判定", `指定の溶媒Volume (${target_pct}%) 以下に収めるには原液濃度が低すぎます。`, `直接希釈時の溶媒Volume = ${actual_direct_pct.toPrecision(3)}%`);
-                stepsHtml += makeStep(2, "直接希釈", `原液: ${take_v} µL<br>培地: ${sol_v} µL`, `よく混ぜて完成`);
-                
-                return { card1Title: "原液採取量", card1Val, card2Title: "培地追加量", card2Val, stepsHtml };
+        // 共通の単純希釈計算 (C1V1 = C2V2)
+        function calculateDilutionSimple(c1_base, c2_base, v2_uL) {
+            let req_uL = v2_uL * (c2_base / c1_base);
+            let sol_uL = v2_uL - req_uL;
+
+            let card1Val = req_uL >= 1000 ? (req_uL/1000).toFixed(2) + ' <span class="text-xl font-normal">mL</span>' : (Math.round(req_uL*10)/10).toFixed(1) + ' <span class="text-xl font-normal">µL</span>';
+            let card2Val = sol_uL >= 1000 ? (sol_uL/1000).toFixed(2) + ' <span class="text-xl font-normal">mL</span>' : (Math.round(sol_uL*10)/10).toFixed(1) + ' <span class="text-xl font-normal">µL</span>';
+
+            let stepsHtml = makeStep(1, "必要原液量の計算 (C1V1 = C2V2)", `作成するストック液量(V2): ${v2_uL >= 1000 ? v2_uL/1000 + ' mL' : v2_uL + ' µL'}`, `必要原液量(V1) = (C2 × V2) / C1 = ${req_uL >= 1000 ? (req_uL/1000).toFixed(3) + ' mL' : req_uL.toFixed(2) + ' µL'}`);
+            stepsHtml += makeStep(2, "溶媒追加量の計算", `溶媒量 = 作成液量(V2) - 必要原液量(V1)`, `溶媒量 = ${sol_uL >= 1000 ? (sol_uL/1000).toFixed(3) + ' mL' : sol_uL.toFixed(2) + ' µL'}`);
+
+            // 採取量が微量な場合の警告
+            if (req_uL < 1) {
+                stepsHtml += `
+                    <div class="mt-4 p-3 bg-red-50 text-red-700 border border-red-200 rounded-lg text-sm font-bold flex gap-2 items-start">
+                        <i data-lucide="alert-triangle" class="w-5 h-5 shrink-0 mt-0.5"></i>
+                        <div>⚠️ 原液の採取量が 1 µL 未満です。<br>ピペッティング誤差が大きくなるため、作成液量を増やすか、中間希釈液（10倍・100倍希釈など）の作成を検討してください。</div>
+                    </div>`;
             }
 
-            let v_add_uL = v2_uL * (target_pct / 100);
-            let c_mid_base = c2_base * (v2_uL / v_add_uL);
-            
-            if (Math.abs(c1_base - c_mid_base) / c1_base < 1e-4) {
-                let sol_v = v2_uL - v_add_uL;
-                let card1Val = v_add_uL >= 1000 ? (v_add_uL/1000).toFixed(2) + ' <span class="text-xl font-normal">mL</span>' : (Math.round(v_add_uL*10)/10).toFixed(1) + ' <span class="text-xl font-normal">µL</span>';
-                let card2Val = sol_v >= 1000 ? (sol_v/1000).toFixed(2) + ' <span class="text-xl font-normal">mL</span>' : (Math.round(sol_v*10)/10).toFixed(1) + ' <span class="text-xl font-normal">µL</span>';
-                
-                let stepsHtml = makeStep(1, "直接希釈 (Step 1/1)", `最終溶媒Volume: ${target_pct}%`, `原液 ${v_add_uL.toFixed(1)} µL を 培地 ${sol_v.toFixed(1)} µL に添加`);
-                return { card1Title: "原液採取量", card1Val, card2Title: "培地追加量", card2Val, stepsHtml };
-            } else {
-                let stepNum = 1;
-                let curr_c = c1_base;
-                let stepsHtml = "";
-                
-                while (curr_c / c_mid_base > 1000) {
-                    let take_v = 10;
-                    let sol_v = 990;
-                    let next_c = curr_c / 100;
-                    stepsHtml += makeStep(stepNum, "100倍希釈", `原液/前段階溶液: ${take_v} µL<br>溶媒(水・DMSO等): ${sol_v} µL`, `中間濃度 ${toSci(next_c)}`);
-                    curr_c = next_c;
-                    stepNum++;
-                }
-
-                let dil_factor = curr_c / c_mid_base;
-                let best_t1 = 1;
-                let t1_cands = [1, 2, 2.5, 3, 4, 5, 8, 10, 15, 20, 25, 30, 40, 50, 100];
-                for (let t of t1_cands) {
-                    let tot = t * dil_factor;
-                    if (Math.abs(tot - Math.round(tot)) < 1e-5 && tot >= v_add_uL * 1.5 && tot >= 10 && tot <= 20000) {
-                        best_t1 = t; break;
-                    }
-                }
-                if (best_t1 * dil_factor < v_add_uL * 1.5) best_t1 = Math.ceil((Math.max(v_add_uL * 1.5, 10)) / dil_factor);
-                
-                let tot_v = best_t1 * dil_factor;
-                let sol_1 = tot_v - best_t1;
-                stepsHtml += makeStep(stepNum, "中間ストック作成", `前段階溶液: ${best_t1} µL<br>溶媒(水・DMSO等): ${sol_1} µL`, `液量 ${tot_v} µL (濃度 ${toSci(c_mid_base)}) のストック完成`);
-                stepNum++;
-
-                let sol_2 = v2_uL - v_add_uL;
-                stepsHtml += makeStep(stepNum, "培地へ添加 (最終)", `中間ストック: ${v_add_uL} µL<br>培地: ${sol_2} µL`, `目的濃度完成 (最終溶媒Volume: ${target_pct}%)`);
-
-                let card1Val = v_add_uL >= 1000 ? (v_add_uL/1000).toFixed(2) + ' <span class="text-xl font-normal">mL</span>' : (Math.round(v_add_uL*10)/10).toFixed(1) + ' <span class="text-xl font-normal">µL</span>';
-                let card2Val = sol_2 >= 1000 ? (sol_2/1000).toFixed(2) + ' <span class="text-xl font-normal">mL</span>' : (Math.round(sol_2*10)/10).toFixed(1) + ' <span class="text-xl font-normal">µL</span>';
-
-                // 中間ストックを作るので、一番上に表示するのは「最終ステップで培地に入れる量」
-                return { card1Title: "中間ストック採取量", card1Val, card2Title: "培地追加量", card2Val, stepsHtml };
-            }
+            return { card1Title: "原液採取量", card1Val, card2Title: "溶媒追加量", card2Val, stepsHtml };
         }
 
         function calculateMolDilution() {
@@ -1253,9 +1095,9 @@
             const c2_base = c2 * unitMultipliersMol[document.getElementById('r-mol-c2-unit').value];
             const v2_uL = v2 * unitMultipliersVol[document.getElementById('r-mol-v2-unit').value];
 
-            if(c1_base <= c2_base) return alert("原液濃度は目的濃度より高く設定してください。");
+            if(c1_base <= c2_base) return alert("原液濃度はストック濃度より高く設定してください。");
 
-            const res = generateDilutionSteps(c1_base, c2_base, v2_uL, 'mol', targetPctMol);
+            const res = calculateDilutionSimple(c1_base, c2_base, v2_uL);
             renderCalcResult('r-mol-result', res.card1Title, res.card1Val, res.card2Title, res.card2Val, res.stepsHtml);
         }
 
@@ -1267,9 +1109,9 @@
             const c2_base = c2 * unitMultipliersMass[document.getElementById('r-mass-c2-unit').value];
             const v2_uL = v2 * unitMultipliersVol[document.getElementById('r-mass-v2-unit').value];
 
-            if(c1_base <= c2_base) return alert("原液濃度は目的濃度より高く設定してください。");
+            if(c1_base <= c2_base) return alert("原液濃度はストック濃度より高く設定してください。");
 
-            const res = generateDilutionSteps(c1_base, c2_base, v2_uL, 'mass', targetPctMass);
+            const res = calculateDilutionSimple(c1_base, c2_base, v2_uL);
             renderCalcResult('r-mass-result', res.card1Title, res.card1Val, res.card2Title, res.card2Val, res.stepsHtml);
         }
 
@@ -1297,8 +1139,8 @@
         // Resets
         function resetWell() { ['w-c1', 'w-c2', 'w-c3', 'w-c4', 'w-wells'].forEach(id => document.getElementById(id).value = ''); document.getElementById('w-result').classList.add('hidden'); renderWellButtons(document.getElementById('w-plate').value); }
         function resetDish() { ['d-c1', 'd-c2', 'd-c3', 'd-c4', 'd-dish-other'].forEach(id => document.getElementById(id).value = ''); document.querySelectorAll('.dish-num-btn').forEach(b => { b.classList.remove('bg-[#359b6c]', 'text-white'); b.classList.add('bg-[#e2e8f0]', 'text-slate-700'); }); const firstDishBtn = document.querySelector('.dish-num-btn[data-val="1"]'); if(firstDishBtn) { firstDishBtn.classList.remove('bg-[#e2e8f0]', 'text-slate-700'); firstDishBtn.classList.add('bg-[#359b6c]', 'text-white'); } selectedDishNum = 1; document.getElementById('d-result').classList.add('hidden'); }
-        function resetMol() { ['r-mol-c1', 'r-mol-c2', 'r-mol-v2', 'r-mol-svol-other'].forEach(id => document.getElementById(id).value = ''); document.getElementById('r-mol-result').classList.add('hidden'); document.querySelector('.svol-btn-mol[data-val="0.1"]').click(); }
-        function resetMass() { ['r-mass-c1', 'r-mass-c2', 'r-mass-v2', 'r-mass-svol-other'].forEach(id => document.getElementById(id).value = ''); document.getElementById('r-mass-result').classList.add('hidden'); document.querySelector('.svol-btn-mass[data-val="0.1"]').click(); }
+        function resetMol() { ['r-mol-c1', 'r-mol-c2', 'r-mol-v2'].forEach(id => document.getElementById(id).value = ''); document.getElementById('r-mol-result').classList.add('hidden'); }
+        function resetMass() { ['r-mass-c1', 'r-mass-c2', 'r-mass-v2'].forEach(id => document.getElementById(id).value = ''); document.getElementById('r-mass-result').classList.add('hidden'); }
         function resetPowder() { ['r-pow-mw', 'r-pow-c', 'r-pow-v'].forEach(id => document.getElementById(id).value = ''); document.getElementById('r-pow-result').classList.add('hidden'); }
 
         // ==================== Force Update Function ====================
@@ -1321,19 +1163,11 @@
             }, 500);
         }
 
-        // Init
-        renderWellButtons('24w');
-        setupSVolBtns('mol');
-        setupSVolBtns('mass');
-
-        // PWA (Only register if on http/https to prevent errors in iframe/blob environments)
+        // PWA
         if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.protocol === 'http:')) {
             window.addEventListener('load', () => {
-                // updateViaCache: 'none' を指定して毎回ネットワークにsw.jsを確認しに行く
                 navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).then(reg => {
-                    reg.update(); // 強制的に更新チェック
-
-                    // 更新が見つかった時の処理
+                    reg.update();
                     reg.addEventListener('updatefound', () => {
                         const newWorker = reg.installing;
                         newWorker.addEventListener('statechange', () => {
