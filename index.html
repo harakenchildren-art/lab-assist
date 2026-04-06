@@ -935,8 +935,26 @@
                             <p class="text-xs text-slate-700">※GASのスクリプト側でAPIキーが正しく設定されていないか、GAS内のモデル名が誤っています。</p>
                         </div>`;
                 } else if (data.text) {
-                    const text = data.text;
-                    resultDiv.innerHTML = `<div class="bg-[#fdf4ff] p-6 sm:p-8 rounded-xl border border-[#f0abfc] shadow-sm"><h4 class="font-bold text-[#a21caf] mb-5 flex items-center gap-2 text-lg"><i data-lucide="sparkles" class="w-5 h-5"></i> AIからのアドバイス</h4><div class="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">${text.replace(/\n/g, '<br>')}</div></div>`;
+                    let text = data.text;
+                    
+                    // URLを検索して<a>タグに置き換える正規表現
+                    const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+                    text = text.replace(urlRegex, function(url) {
+                        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline break-all">${url}</a>`;
+                    });
+
+                    // 改行を<br>に変換
+                    const formattedText = text.replace(/\n/g, '<br>');
+
+                    resultDiv.innerHTML = `
+                        <div class="bg-[#fdf4ff] p-6 sm:p-8 rounded-xl border border-[#f0abfc] shadow-sm">
+                            <h4 class="font-bold text-[#a21caf] mb-5 flex items-center gap-2 text-lg">
+                                <i data-lucide="sparkles" class="w-5 h-5"></i> AIからのアドバイス
+                            </h4>
+                        <div class="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">
+                            ${formattedText}
+                        </div>
+                    </div>`;
                 } else {
                     resultDiv.innerHTML = `<div class="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200 font-bold">回答を取得できませんでした。</div>`;
                 }
