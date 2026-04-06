@@ -742,7 +742,7 @@
 
         // ==================== API Configuration ====================
         // ★ APIキーはHTMLから完全に削除し、安全なGAS側に隠蔽しました ★
-        const rulesApiUrl = "https://script.google.com/macros/s/AKfycbyqhixIKoDEvAcrH4hgYXiMQGeL8jcrCA7wpOfb80EHUl1O1g9QX6LPQ_tofyr_5o04/exec"; // ※ここにGASのウェブアプリURL
+        const rulesApiUrl = "https://script.google.com/macros/s/AKfycbxQN-WEEw-NyZwcVt-_SiXVRqZ5EsrkxwcL_fRsYk-rQYXDMvfMrR0H4-_YVtol97T0/exec"; // ※ここにGASのウェブアプリURL
         
         let globalDynamicRules = "";
         let globalNewsData = []; // お知らせの配列データ
@@ -760,14 +760,19 @@
                 
                 // お知らせデータのパースとUI更新
                 if (data.news) {
-                    // 連続する空行で記事ごとに分割
-                    const blocks = data.news.split(/\n\s*\n/);
-                    globalNewsData = blocks.map(block => {
-                        const lines = block.trim().split('\n');
-                        const title = lines[0]; // 1行目をタイトルにする
-                        const content = lines.slice(1).join('\n'); // 2行目以降を本文にする
-                        return { title, content };
-                    }).filter(item => item.title); // タイトルが空のものは除外
+                    // もし「お知らせはありません。」というGASの初期メッセージなどがそのまま返ってきたら空にする
+                    if(data.news.trim() === "お知らせはありません。" || data.news.trim() === "お知らせ情報の取得に失敗、またはお知らせ用ドキュメントIDが設定されていません。") {
+                        globalNewsData = [];
+                    } else {
+                        // 「---」の区切り線、または「連続する空行」のどちらでも記事ごとに分割できるハイブリッド方式
+                        const blocks = data.news.split(/---+|(?:\n\s*\n)+/);
+                        globalNewsData = blocks.map(block => {
+                            const lines = block.trim().split('\n');
+                            const title = lines[0]; // 1行目をタイトルにする
+                            const content = lines.slice(1).join('\n'); // 2行目以降を本文にする
+                            return { title, content };
+                        }).filter(item => item.title); // タイトルが空のものは除外
+                    }
 
                     renderNewsTicker();
                     renderNewsPreview();
