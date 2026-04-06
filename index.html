@@ -887,8 +887,8 @@
 
 
         // ==================== AI Advisor Logic ====================
-        // ★ リトライ回数を 2 に変更
-        async function fetchWithRetry(url, options, maxRetries = 0) {
+        // ★ リトライ回数を 1 に変更
+        async function fetchWithRetry(url, options, maxRetries = 1) {
             let delay = 1000;
             for (let i = 0; i < maxRetries; i++) {
                 try {
