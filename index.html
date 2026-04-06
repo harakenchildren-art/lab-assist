@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lab-Assist | 原太一研究室</title>
     
-    <!-- PWA Settings -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#050a07">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -85,11 +84,9 @@
 </head>
 <body class="text-slate-800">
 
-    <!-- Header -->
     <header class="bg-[#050a07] text-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
                 <div class="flex items-center gap-3 cursor-pointer" onclick="switchAppView('home')">
                     <div class="bg-[#359b6c] p-1.5 rounded text-white flex items-center justify-center h-9 w-9">
                         <i data-lucide="flask-conical" class="w-5 h-5"></i>
@@ -100,9 +97,7 @@
                     </div>
                 </div>
                 
-                <!-- Nav Actions -->
                 <div class="flex items-center gap-1 sm:gap-2 relative">
-                    <!-- クイックツール -->
                     <button onclick="switchAppView('calc')" class="text-slate-300 hover:text-white p-2 rounded-lg transition-colors border border-transparent hover:bg-white/10" title="実験計算ツール">
                         <i data-lucide="calculator" class="w-5 h-5"></i>
                     </button>
@@ -112,12 +107,10 @@
                     
                     <div class="w-px h-5 bg-slate-700 mx-1"></div>
                     
-                    <!-- ハンバーガーメニュー -->
                     <button id="menu-btn" onclick="toggleMenu(event)" class="text-slate-300 hover:text-white p-2 rounded-lg transition-colors border border-transparent hover:bg-white/10 flex items-center gap-2">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
 
-                    <!-- ドロップダウン -->
                     <div id="dropdown-menu" class="hidden absolute right-0 top-14 w-64 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50 text-slate-800 transform origin-top-right">
                         <a href="#" onclick="switchAppView('home'); toggleMenu(); return false;" class="flex items-center gap-3 px-5 py-3 hover:bg-slate-50 transition-colors border-b border-slate-100">
                             <i data-lucide="home" class="w-4 h-4 text-[#359b6c]"></i> <span class="font-bold text-sm">ホームに戻る</span>
@@ -150,9 +143,7 @@
         </div>
     </header>
 
-    <!-- ==================== HOME VIEW ==================== -->
     <div id="view-home" class="block">
-        <!-- Hero Section -->
         <div class="hero-bg py-20 text-center text-white">
             <div class="relative z-10 max-w-3xl mx-auto px-4">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Lab-Assist</h1>
@@ -160,7 +151,6 @@
             </div>
         </div>
 
-        <!-- News Bar (動的) -->
         <div class="bg-[#eaf4ed] border-b border-[#cce6d6]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col sm:flex-row sm:items-start justify-between gap-3 text-sm">
                 <div class="flex items-start gap-3 sm:gap-4 flex-col sm:flex-row w-full">
@@ -178,10 +168,8 @@
             </div>
         </div>
 
-        <!-- Main Content Area -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
             
-            <!-- Quick Access (Tools) -->
             <section>
                 <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
                     <span class="w-1.5 h-6 bg-[#359b6c] rounded-full mr-3"></span>
@@ -211,7 +199,6 @@
                 </div>
             </section>
 
-            <!-- Content List (Accordions) -->
             <section>
                 <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
                     <span class="w-1.5 h-6 bg-[#359b6c] rounded-full mr-3"></span>
@@ -219,7 +206,6 @@
                 </h2>
 
                 <div class="space-y-5">
-                    <!-- リソース -->
                     <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
                         <button onclick="toggleAccordion('acc-research')" class="w-full px-6 py-5 flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">
                             <div class="flex items-center gap-4">
@@ -263,7 +249,6 @@
                         </div>
                     </div>
 
-                    <!-- ラボ運営・施設 -->
                     <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
                         <button onclick="toggleAccordion('acc-facility')" class="w-full px-6 py-5 flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">
                             <div class="flex items-center gap-4">
@@ -318,7 +303,6 @@
                         </div>
                     </div>
 
-                    <!-- コミュニケーション / 動的掲示板 -->
                     <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
                         <button onclick="toggleAccordion('acc-comm')" class="w-full px-6 py-5 flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">
                             <div class="flex items-center gap-4">
@@ -331,9 +315,7 @@
                             <i data-lucide="chevron-down" id="icon-acc-comm" class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
                         </button>
                         <div id="content-acc-comm" class="accordion-content px-6 pb-6 pt-4 border-t border-slate-100">
-                            <!-- ★ レイアウトを修正して高さを揃える ★ -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-                                <!-- 研究室掲示板カード -->
                                 <div class="border border-slate-200 rounded-lg p-5 sm:p-6 bg-white shadow-sm flex flex-col h-full">
                                     <div class="flex items-center justify-between mb-4">
                                         <div class="flex items-center gap-2 text-slate-800">
@@ -349,7 +331,6 @@
                                     </div>
                                 </div>
 
-                                <!-- お問い合わせカード -->
                                 <div class="border border-slate-200 rounded-lg p-5 sm:p-6 bg-slate-50 flex flex-col h-full justify-between items-center text-center">
                                     <div class="mb-4">
                                         <div class="bg-blue-100 p-3 rounded-full mb-3 text-blue-600 inline-block">
@@ -370,7 +351,6 @@
         </div>
     </div>
 
-    <!-- ==================== NEWS VIEW ==================== -->
     <div id="view-news" class="hidden-view">
         <div class="bg-white border-b border-slate-200 sticky top-16 z-40 shadow-sm">
             <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -396,12 +376,10 @@
             </div>
 
             <div id="news-list-container" class="space-y-4">
-                <!-- ここに動的に記事が入ります -->
-            </div>
+                </div>
         </div>
     </div>
 
-    <!-- ==================== CALCULATOR VIEW ==================== -->
     <div id="view-calc" class="hidden-view">
         <div class="bg-white border-b border-slate-200">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -431,7 +409,6 @@
                 </button>
             </div>
 
-            <!-- 試験モード -->
             <div id="content-well" class="fade-in space-y-6">
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
                     <h3 class="font-bold text-sm text-slate-800 mb-3">血球計算盤の4区画の細胞数</h3>
@@ -475,7 +452,6 @@
                 </div>
             </div>
 
-            <!-- 継代モード -->
             <div id="content-dish" class="hidden-tab space-y-6">
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
                     <div class="flex gap-2 mb-8 bg-slate-100 p-1 rounded-lg">
@@ -536,7 +512,6 @@
                 </div>
             </div>
 
-            <!-- 試薬・濃度計算 -->
             <div id="content-reagent" class="hidden-tab space-y-6">
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
                     <div class="flex gap-2 mb-8 bg-slate-100 p-1 rounded-lg flex-wrap sm:flex-nowrap">
@@ -545,7 +520,6 @@
                         <button id="subtab-btn-powder" onclick="switchReagentTab('powder')" class="flex-1 py-2 px-2 rounded-md font-bold text-sm transition-colors text-slate-600 hover:text-slate-800 hover:bg-slate-200 whitespace-nowrap"><i data-lucide="scale" class="w-4 h-4 inline mr-1"></i> 粉末から調製</button>
                     </div>
 
-                    <!-- モル希釈 -->
                     <div id="subcontent-mol">
                         <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6 flex gap-3 text-sm text-blue-800">
                             <i data-lucide="info" class="w-5 h-5 mt-0.5 shrink-0 text-blue-600"></i>
@@ -591,7 +565,6 @@
                         <div id="r-mol-result" class="hidden mt-8 space-y-4"></div>
                     </div>
 
-                    <!-- 質量希釈 -->
                     <div id="subcontent-mass" class="hidden-tab">
                         <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6 flex gap-3 text-sm text-blue-800">
                             <i data-lucide="info" class="w-5 h-5 mt-0.5 shrink-0 text-blue-600"></i>
@@ -637,7 +610,6 @@
                         <div id="r-mass-result" class="hidden mt-8 space-y-4"></div>
                     </div>
 
-                    <!-- 粉末から調製 -->
                     <div id="subcontent-powder" class="hidden-tab">
                         <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6 flex gap-3 text-sm text-blue-800">
                             <i data-lucide="info" class="w-5 h-5 mt-0.5 shrink-0 text-blue-600"></i>
@@ -682,7 +654,6 @@
                 </div>
             </div>
 
-            <!-- プレート仕様カード (下部固定表示) -->
             <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mt-8">
                 <h3 class="font-bold text-base text-slate-800 mb-4">プレート仕様 & デフォルト目標密度</h3>
                 <div class="space-y-4">
@@ -709,7 +680,6 @@
         </div>
     </div>
 
-    <!-- ==================== AI ADVISOR VIEW ==================== -->
     <div id="view-ai" class="hidden-view">
         <div class="bg-white border-b border-slate-200">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -726,26 +696,31 @@
                 </div>
                 <div>
                     <h2 class="text-2xl font-bold text-slate-800">✨ AI実験アドバイザー</h2>
-                    <p class="text-slate-500 text-sm mt-1">研究室のSOPや一般的な知識に基づいて回答します。</p>
+                    <p class="text-slate-500 text-sm mt-1">研究室のSOPや備品リストに基づいて回答します。</p>
                 </div>
             </div>
 
             <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
                 <div class="mb-6">
                     <label class="block font-bold text-sm text-slate-800 mb-2">質問・相談内容</label>
-                    <textarea id="ai-input" rows="4" class="w-full border border-slate-300 rounded-xl p-4 focus:ring-2 focus:ring-[#c026d3] focus:outline-none text-sm resize-none shadow-inner" placeholder="例：ウェスタンブロッティングでバンドが滲む原因と対策を教えてください。&#10;例：細胞培養の予約ルールを教えて。"></textarea>
+                    <textarea id="ai-input" rows="4" class="w-full border border-slate-300 rounded-xl p-4 focus:ring-2 focus:ring-[#c026d3] focus:outline-none text-sm resize-none shadow-inner" placeholder="例：ウェスタンブロッティングでバンドが滲む原因と対策を教えて。&#10;例：細胞培養の予約ルールを教えて。&#10;例：抗GFP抗体はどこの棚にある？"></textarea>
                 </div>
                 
                 <button id="ai-btn" onclick="askGemini()" class="w-full sm:w-auto px-8 py-3.5 bg-[#c026d3] hover:bg-[#a21caf] text-white font-bold rounded-xl transition-colors shadow-sm flex items-center justify-center gap-2">
                     <i data-lucide="sparkles" class="w-4 h-4"></i> AIに相談する
                 </button>
+                
+                <div class="mt-4 flex justify-end">
+                    <button onclick="refreshInventoryCache()" class="text-xs font-bold text-slate-400 hover:text-[#c026d3] flex items-center gap-1.5 transition-colors border border-slate-200 px-3 py-1.5 rounded-full bg-slate-50 hover:bg-magenta-50 shadow-sm">
+                        <i data-lucide="refresh-cw" class="w-3 h-3"></i> 備品・SOPデータを最新に更新する
+                    </button>
+                </div>
 
                 <div id="ai-result" class="hidden mt-8"></div>
             </div>
         </div>
     </div>
 
-    <!-- Footer with Force Update Button -->
     <footer class="bg-white border-t border-slate-200 mt-12 py-8 flex flex-col items-center">
         <p class="text-sm text-slate-500 mb-4">&copy; 2026 Hara lab. All rights reserved.</p>
         <button onclick="forceUpdateApp()" class="text-xs font-bold text-slate-400 hover:text-[#359b6c] flex items-center gap-1.5 transition-colors border border-slate-200 px-3 py-1.5 rounded-full bg-slate-50 hover:bg-green-50 shadow-sm">
@@ -753,18 +728,16 @@
         </button>
     </footer>
 
-    <!-- Scripts -->
     <script>
         lucide.createIcons();
 
         // ==================== API Configuration ====================
-        // ★ APIキーはHTMLから完全に削除し、安全なGAS側に隠蔽しました ★
-        const rulesApiUrl = "https://script.google.com/macros/s/AKfycbyim9JvQ27KN-oPWgClMPVKbJfHxq1Qb-Fkv-PxJQ2fQxS1d1m9ddlT7LPg7wxTUUtS/exec"; // ※ここにGASのウェブアプリURL
+        const rulesApiUrl = "https://script.google.com/macros/s/AKfycbyim9JvQ27KN-oPWgClMPVKbJfHxq1Qb-Fkv-PxJQ2fQxS1d1m9ddlT7LPg7wxTUUtS/exec";
         
         let globalDynamicRules = "";
-        let globalNewsData = []; // お知らせの配列データ
+        let globalNewsData = [];
 
-        // ==================== ページ読み込み時に最新のお知らせ・ルールを取得 ====================
+        // ==================== ページ読み込み時に最新のお知らせを取得 ====================
         async function fetchDynamicData() {
             if (!rulesApiUrl) return;
             try {
@@ -775,23 +748,19 @@
                     globalDynamicRules = data.rules;
                 }
                 
-                // お知らせデータのパースとUI更新
                 if (data.news) {
                     if(data.news.trim() === "お知らせはありません。" || data.news.trim() === "お知らせ情報の取得に失敗、またはお知らせ用ドキュメントIDが設定されていません。") {
                         globalNewsData = [];
                     } else {
-                        // ★ 行の先頭が日付（2026/04/06 など）で始まるかどうかを基準にして記事を分割する賢いパース処理
                         let blocks = [];
                         const lines = data.news.split('\n');
-                        const dateRegex = /^20\d{2}\/\d{1,2}\/\d{1,2}/; // 年/月/日 のパターン
+                        const dateRegex = /^20\d{2}\/\d{1,2}\/\d{1,2}/; 
 
                         let currentTitle = "";
                         let currentContent = [];
 
                         for (let i = 0; i < lines.length; i++) {
                             let line = lines[i].trim();
-                            
-                            // 日付から始まる行、または一番最初の文字がある行を「タイトル」と見なす
                             if (dateRegex.test(line) || (line !== "" && currentTitle === "")) {
                                 if (currentTitle !== "") {
                                     blocks.push({ title: currentTitle, content: currentContent.join('\n').trim() });
@@ -807,13 +776,12 @@
                         if (currentTitle !== "") {
                             blocks.push({ title: currentTitle, content: currentContent.join('\n').trim() });
                         }
-                        
                         globalNewsData = blocks;
                     }
 
                     renderNewsTicker();
                     renderNewsPreview();
-                    setNewsMode('compact'); // 初期表示はコンパクトモード
+                    setNewsMode('compact');
                 }
             } catch (e) {
                 console.log("Failed to fetch dynamic data:", e);
@@ -831,7 +799,6 @@
                 container.innerHTML = `<span>新しいお知らせはありません</span>`;
                 return;
             }
-            // 最新2件を抽出して表示（タイトルのみ）
             const items = globalNewsData.slice(0, 2);
             container.innerHTML = items.map((item, index) => `
                 <div class="flex items-start gap-2">
@@ -847,7 +814,6 @@
                 container.innerHTML = `<div class="text-slate-500 text-center py-4">お知らせはありません</div>`;
                 return;
             }
-            // アコーディオン内には最新3件までプレビュー表示（タイトルのみ＋矢印アイコン）
             const items = globalNewsData.slice(0, 3);
             container.innerHTML = items.map((item, index) => `
                 <div class="flex items-center gap-2 pb-3 border-b border-slate-100 last:border-0 last:pb-0 group cursor-pointer" onclick="switchAppView('news'); setTimeout(()=>toggleNewsItem(${index}), 100);">
@@ -862,7 +828,6 @@
 
         function setNewsMode(mode) {
             currentNewsMode = mode;
-            
             const btnCompact = document.getElementById('news-mode-compact');
             const btnExpanded = document.getElementById('news-mode-expanded');
             
@@ -873,7 +838,6 @@
                 btnExpanded.className = 'px-3 py-1.5 rounded bg-white text-slate-800 shadow-sm transition-all flex items-center gap-1';
                 btnCompact.className = 'px-3 py-1.5 rounded text-slate-500 hover:text-slate-800 transition-all flex items-center gap-1 hover:bg-slate-200';
             }
-
             renderNewsList();
         }
 
@@ -908,7 +872,7 @@
             if(currentNewsMode === 'expanded') return;
             const content = document.getElementById(`news-content-${index}`);
             const icon = document.getElementById(`news-icon-${index}`);
-            if(!content) return; // 本文がない場合は何もしない
+            if(!content) return; 
 
             if(content.classList.contains('hidden')) {
                 content.classList.remove('hidden');
@@ -923,7 +887,8 @@
 
 
         // ==================== AI Advisor Logic ====================
-        async function fetchWithRetry(url, options, maxRetries = 5) {
+        // ★ リトライ回数を 2 に変更
+        async function fetchWithRetry(url, options, maxRetries = 2) {
             let delay = 1000;
             for (let i = 0; i < maxRetries; i++) {
                 try {
@@ -952,18 +917,16 @@
             btn.classList.add('opacity-50', 'cursor-not-allowed');
             
             try {
-                // ★ GAS（サーバー側）に質問を送り、GASの中でGeminiと通信させる安全な方式
                 const payload = { message: input };
                 
                 const response = await fetchWithRetry(rulesApiUrl, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'text/plain' }, // CORSエラー回避
+                    headers: { 'Content-Type': 'text/plain' }, 
                     body: JSON.stringify(payload)
                 });
                 
                 const data = await response.json();
                 
-                // エラー内容をキャッチして画面に表示する
                 if (data.error) {
                     resultDiv.innerHTML = `
                         <div class="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200">
@@ -981,6 +944,30 @@
                 resultDiv.innerHTML = `<div class="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200 font-bold">通信エラーが発生しました。<br><span class="text-sm font-normal text-slate-700 mt-2 block">※インターネット接続を確認してください。</span></div>`;
             } finally {
                 btn.disabled = false; btn.classList.remove('opacity-50', 'cursor-not-allowed'); lucide.createIcons();
+            }
+        }
+
+        // 【追加】手動でキャッシュをクリアする関数
+        async function refreshInventoryCache() {
+            if (!confirm("スプレッドシートやSOPの最新情報を読み込み直しますか？\n（次回のAI回答時に少し時間がかかります）")) return;
+
+            const resultDiv = document.getElementById('ai-result');
+            resultDiv.innerHTML = `<div class="text-center py-4 bg-slate-50 rounded-xl border border-slate-100"><p class="text-xs font-bold text-slate-500">キャッシュをクリア中...</p></div>`;
+            resultDiv.classList.remove('hidden');
+
+            try {
+                const response = await fetch(rulesApiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ refresh: true })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    alert("更新準備が完了しました。次回の質問から最新のデータが反映されます。");
+                    resultDiv.classList.add('hidden');
+                }
+            } catch (e) {
+                alert("通信エラーが発生しました。");
             }
         }
 
@@ -1170,8 +1157,8 @@
             const conc = avg * 10000;
             const targetPerWell = specs[plateType].targets[cellType];
             const totalCellsNeeded = targetPerWell * wells;
-            const suspVolNeeded = totalCellsNeeded / conc; // mL
-            const totalMediaVol = specs[plateType].vol * wells; // mL
+            const suspVolNeeded = totalCellsNeeded / conc; 
+            const totalMediaVol = specs[plateType].vol * wells; 
             
             const suspVolUL = Math.round(suspVolNeeded * 1000);
             const suspVolML_rounded = Math.round(suspVolNeeded * 20) / 20; 
@@ -1217,7 +1204,6 @@
 
             if (!dishes) return alert("必要なdish数を入力してください。");
 
-            // 血球計算盤タブがアクティブかどうか
             let isHemo = document.getElementById('subcontent-hemo').classList.contains('hidden-tab') === false;
 
             if(isHemo) {
@@ -1235,8 +1221,8 @@
 
             const targetPerDish = specs[dishType].targets[cellType];
             const totalCellsNeeded = targetPerDish * dishes;
-            const suspVolNeeded = totalCellsNeeded / conc; // mL
-            const totalMediaVol = specs[dishType].vol * dishes; // mL
+            const suspVolNeeded = totalCellsNeeded / conc; 
+            const totalMediaVol = specs[dishType].vol * dishes; 
 
             const suspVolUL = Math.round(suspVolNeeded * 1000);
             const suspVolML_rounded = Math.round(suspVolNeeded * 20) / 20; 
@@ -1261,10 +1247,9 @@
 
         // ==================== REAGENT MODE ====================
         const unitMultipliersMol = { 'M': 1e9, 'mM': 1e6, 'uM': 1e3, 'nM': 1 };
-        const unitMultipliersMass = { 'mg': 1e6, 'ug': 1e3, 'ng': 1 }; // Base: ng/mL
-        const unitMultipliersVol = { 'L': 1e6, 'mL': 1e3, 'uL': 1 }; // Base: uL
+        const unitMultipliersMass = { 'mg': 1e6, 'ug': 1e3, 'ng': 1 }; 
+        const unitMultipliersVol = { 'L': 1e6, 'mL': 1e3, 'uL': 1 }; 
 
-        // 共通の単純希釈計算 (C1V1 = C2V2)
         function calculateDilutionSimple(c1_base, c2_base, v2_uL) {
             let req_uL = v2_uL * (c2_base / c1_base);
             let sol_uL = v2_uL - req_uL;
@@ -1275,7 +1260,6 @@
             let stepsHtml = makeStep(1, "必要原液量の計算 (C1V1 = C2V2)", `作成するストック液量(V2): ${v2_uL >= 1000 ? v2_uL/1000 + ' mL' : v2_uL + ' µL'}`, `必要原液量(V1) = (C2 × V2) / C1 = ${req_uL >= 1000 ? (req_uL/1000).toFixed(3) + ' mL' : req_uL.toFixed(2) + ' µL'}`);
             stepsHtml += makeStep(2, "溶媒追加量の計算", `溶媒量 = 作成液量(V2) - 必要原液量(V1)`, `溶媒量 = ${sol_uL >= 1000 ? (sol_uL/1000).toFixed(3) + ' mL' : sol_uL.toFixed(2) + ' µL'}`);
 
-            // 採取量が微量な場合の警告
             if (req_uL < 1) {
                 stepsHtml += `
                     <div class="mt-4 p-3 bg-red-50 text-red-700 border border-red-200 rounded-lg text-sm font-bold flex gap-2 items-start">
@@ -1357,7 +1341,6 @@
                     }
                 });
             }
-            // 少し待ってからキャッシュを無視して強制リロード
             setTimeout(() => {
                 window.location.href = window.location.href.split('?')[0] + '?_t=' + new Date().getTime();
             }, 500);
@@ -1373,7 +1356,6 @@
                         newWorker.addEventListener('statechange', () => {
                             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
                                 if (confirm('最新のアップデートがあります。ページを再読み込みして更新しますか？')) {
-                                    // キャッシュを削除してからリロードする
                                     if ('caches' in window) {
                                         caches.keys().then(names => { for (let name of names) caches.delete(name); });
                                     }
