@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lab-Assist | 原太一研究室</title>
     
+    <!-- PWA Settings -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#050a07">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -84,9 +85,11 @@
 </head>
 <body class="text-slate-800">
 
+    <!-- Header -->
     <header class="bg-[#050a07] text-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
                 <div class="flex items-center gap-3 cursor-pointer" onclick="switchAppView('home')">
                     <div class="bg-[#359b6c] p-1.5 rounded text-white flex items-center justify-center h-9 w-9">
                         <i data-lucide="flask-conical" class="w-5 h-5"></i>
@@ -97,7 +100,9 @@
                     </div>
                 </div>
                 
+                <!-- Nav Actions -->
                 <div class="flex items-center gap-1 sm:gap-2 relative">
+                    <!-- クイックツール -->
                     <button onclick="switchAppView('calc')" class="text-slate-300 hover:text-white p-2 rounded-lg transition-colors border border-transparent hover:bg-white/10" title="実験計算ツール">
                         <i data-lucide="calculator" class="w-5 h-5"></i>
                     </button>
@@ -107,10 +112,12 @@
                     
                     <div class="w-px h-5 bg-slate-700 mx-1"></div>
                     
+                    <!-- ハンバーガーメニュー -->
                     <button id="menu-btn" onclick="toggleMenu(event)" class="text-slate-300 hover:text-white p-2 rounded-lg transition-colors border border-transparent hover:bg-white/10 flex items-center gap-2">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
 
+                    <!-- ドロップダウン -->
                     <div id="dropdown-menu" class="hidden absolute right-0 top-14 w-64 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50 text-slate-800 transform origin-top-right">
                         <a href="#" onclick="switchAppView('home'); toggleMenu(); return false;" class="flex items-center gap-3 px-5 py-3 hover:bg-slate-50 transition-colors border-b border-slate-100">
                             <i data-lucide="home" class="w-4 h-4 text-[#359b6c]"></i> <span class="font-bold text-sm">ホームに戻る</span>
@@ -134,7 +141,7 @@
                         <a href="https://docs.google.com/spreadsheets/d/1qzGHaALL0V5BRmROpEyjBBI_WkkMteRq-Nh4G6qBR_k/edit?usp=sharing" target="_blank" class="flex items-center gap-3 px-5 py-2.5 hover:bg-slate-50 transition-colors group">
                             <i data-lucide="package-search" class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-colors"></i> <span class="text-sm font-medium">備品検索システム</span>
                         </a>
-                        <a href="https://drive.google.com/file/d/1yGcb0NflWCFgXRhO_frjvesCAcTSoit7/view?usp=sharing" target="_blank" class="flex items-center gap-3 px-5 py-2.5 hover:bg-slate-50 transition-colors group">
+                        <a href="https://docs.google.com/document/d/1ZDzVs1f2ytiCi6s7_jAZL2OH9GS1p8sDpi1DNVlBIZ0/edit?usp=sharing" target="_blank" class="flex items-center gap-3 px-5 py-2.5 hover:bg-slate-50 transition-colors group">
                             <i data-lucide="calendar" class="w-4 h-4 text-slate-400 group-hover:text-indigo-500 transition-colors"></i> <span class="text-sm font-medium">カレンダー入力ルール</span>
                         </a>
                     </div>
@@ -143,7 +150,9 @@
         </div>
     </header>
 
+    <!-- ==================== HOME VIEW ==================== -->
     <div id="view-home" class="block">
+        <!-- Hero Section -->
         <div class="hero-bg py-20 text-center text-white">
             <div class="relative z-10 max-w-3xl mx-auto px-4">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Lab-Assist</h1>
@@ -151,6 +160,7 @@
             </div>
         </div>
 
+        <!-- News Bar (動的) -->
         <div class="bg-[#eaf4ed] border-b border-[#cce6d6]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col sm:flex-row sm:items-start justify-between gap-3 text-sm">
                 <div class="flex items-start gap-3 sm:gap-4 flex-col sm:flex-row w-full">
@@ -168,8 +178,10 @@
             </div>
         </div>
 
+        <!-- Main Content Area -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
             
+            <!-- Quick Access (Tools) -->
             <section>
                 <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
                     <span class="w-1.5 h-6 bg-[#359b6c] rounded-full mr-3"></span>
@@ -199,6 +211,7 @@
                 </div>
             </section>
 
+            <!-- Content List (Accordions) -->
             <section>
                 <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
                     <span class="w-1.5 h-6 bg-[#359b6c] rounded-full mr-3"></span>
@@ -206,6 +219,7 @@
                 </h2>
 
                 <div class="space-y-5">
+                    <!-- リソース -->
                     <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
                         <button onclick="toggleAccordion('acc-research')" class="w-full px-6 py-5 flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">
                             <div class="flex items-center gap-4">
@@ -249,6 +263,7 @@
                         </div>
                     </div>
 
+                    <!-- ラボ運営・施設 -->
                     <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
                         <button onclick="toggleAccordion('acc-facility')" class="w-full px-6 py-5 flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">
                             <div class="flex items-center gap-4">
@@ -282,7 +297,7 @@
                                     <div class="mt-0.5 text-[#359b6c] shrink-0"><i data-lucide="calendar" class="w-5 h-5"></i></div>
                                     <div>
                                         <div class="font-bold text-slate-800 text-sm">培養室予約ルール</div>
-                                        <a href="https://drive.google.com/file/d/1yGcb0NflWCFgXRhO_frjvesCAcTSoit7/view?usp=sharing" target="_blank" class="text-xs text-blue-600 hover:underline break-all">予約カレンダールール (PDF)</a>
+                                        <a href="https://docs.google.com/document/d/1ZDzVs1f2ytiCi6s7_jAZL2OH9GS1p8sDpi1DNVlBIZ0/edit?usp=sharing" target="_blank" class="text-xs text-blue-600 hover:underline break-all">予約カレンダールールを確認</a>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-3">
@@ -303,6 +318,7 @@
                         </div>
                     </div>
 
+                    <!-- コミュニケーション / 動的掲示板 -->
                     <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
                         <button onclick="toggleAccordion('acc-comm')" class="w-full px-6 py-5 flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">
                             <div class="flex items-center gap-4">
@@ -316,6 +332,7 @@
                         </button>
                         <div id="content-acc-comm" class="accordion-content px-6 pb-6 pt-4 border-t border-slate-100">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+                                <!-- 研究室掲示板カード -->
                                 <div class="border border-slate-200 rounded-lg p-5 sm:p-6 bg-white shadow-sm flex flex-col h-full">
                                     <div class="flex items-center justify-between mb-4">
                                         <div class="flex items-center gap-2 text-slate-800">
@@ -331,6 +348,7 @@
                                     </div>
                                 </div>
 
+                                <!-- お問い合わせカード -->
                                 <div class="border border-slate-200 rounded-lg p-5 sm:p-6 bg-slate-50 flex flex-col h-full justify-between items-center text-center">
                                     <div class="mb-4">
                                         <div class="bg-blue-100 p-3 rounded-full mb-3 text-blue-600 inline-block">
@@ -351,6 +369,7 @@
         </div>
     </div>
 
+    <!-- ==================== NEWS VIEW ==================== -->
     <div id="view-news" class="hidden-view">
         <div class="bg-white border-b border-slate-200 sticky top-16 z-40 shadow-sm">
             <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -376,10 +395,12 @@
             </div>
 
             <div id="news-list-container" class="space-y-4">
-                </div>
+                <!-- ここに動的に記事が入ります -->
+            </div>
         </div>
     </div>
 
+    <!-- ==================== CALCULATOR VIEW ==================== -->
     <div id="view-calc" class="hidden-view">
         <div class="bg-white border-b border-slate-200">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -409,6 +430,7 @@
                 </button>
             </div>
 
+            <!-- 試験モード -->
             <div id="content-well" class="fade-in space-y-6">
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
                     <h3 class="font-bold text-sm text-slate-800 mb-3">血球計算盤の4区画の細胞数</h3>
@@ -452,6 +474,7 @@
                 </div>
             </div>
 
+            <!-- 継代モード -->
             <div id="content-dish" class="hidden-tab space-y-6">
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
                     <div class="flex gap-2 mb-8 bg-slate-100 p-1 rounded-lg">
@@ -471,8 +494,12 @@
 
                     <div id="subcontent-conf" class="hidden-tab">
                         <h3 class="font-bold text-sm text-slate-800 mb-2">コンフル率</h3>
+                        <!-- ★ 修正：コンフル率の選択肢を更新 -->
                         <select id="d-conf-rate" class="w-full border border-slate-300 rounded-lg p-2.5 mb-8 focus:ring-2 focus:ring-[#359b6c] focus:outline-none bg-white">
-                            <option value="90">90〜100%</option><option value="75" selected>70〜80%</option><option value="50">40〜60%</option><option value="30">30%以下</option>
+                            <option value="90">90%~</option>
+                            <option value="80" selected>70~90%（標準）</option>
+                            <option value="60">50~70%</option>
+                            <option value="50">~50%</option>
                         </select>
                     </div>
 
@@ -480,13 +507,15 @@
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">細胞種別</label>
                             <select id="d-cell" class="w-full border border-slate-300 rounded-lg p-2 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#359b6c]">
-                                <option value="hela">HeLa / HaCaT</option><option value="caco2">Caco-2</option>
+                                <option value="hela">HeLa / HaCaT</option>
+                                <option value="caco2">Caco-2</option>
                             </select>
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">Dishの種類</label>
                             <select id="d-dish" class="w-full border border-slate-300 rounded-lg p-2 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#359b6c]">
-                                <option value="10cm">10cm dish (10 mL)</option><option value="6cm">6cm dish (5 mL)</option>
+                                <option value="10cm">10cm dish (10 mL)</option>
+                                <option value="6cm">6cm dish (5 mL)</option>
                             </select>
                         </div>
                     </div>
@@ -512,6 +541,7 @@
                 </div>
             </div>
 
+            <!-- 試薬・濃度計算 -->
             <div id="content-reagent" class="hidden-tab space-y-6">
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
                     <div class="flex gap-2 mb-8 bg-slate-100 p-1 rounded-lg flex-wrap sm:flex-nowrap">
@@ -520,6 +550,7 @@
                         <button id="subtab-btn-powder" onclick="switchReagentTab('powder')" class="flex-1 py-2 px-2 rounded-md font-bold text-sm transition-colors text-slate-600 hover:text-slate-800 hover:bg-slate-200 whitespace-nowrap"><i data-lucide="scale" class="w-4 h-4 inline mr-1"></i> 粉末から調製</button>
                     </div>
 
+                    <!-- モル希釈 -->
                     <div id="subcontent-mol">
                         <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6 flex gap-3 text-sm text-blue-800">
                             <i data-lucide="info" class="w-5 h-5 mt-0.5 shrink-0 text-blue-600"></i>
@@ -565,6 +596,7 @@
                         <div id="r-mol-result" class="hidden mt-8 space-y-4"></div>
                     </div>
 
+                    <!-- 質量希釈 -->
                     <div id="subcontent-mass" class="hidden-tab">
                         <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6 flex gap-3 text-sm text-blue-800">
                             <i data-lucide="info" class="w-5 h-5 mt-0.5 shrink-0 text-blue-600"></i>
@@ -610,6 +642,7 @@
                         <div id="r-mass-result" class="hidden mt-8 space-y-4"></div>
                     </div>
 
+                    <!-- 粉末から調製 -->
                     <div id="subcontent-powder" class="hidden-tab">
                         <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6 flex gap-3 text-sm text-blue-800">
                             <i data-lucide="info" class="w-5 h-5 mt-0.5 shrink-0 text-blue-600"></i>
@@ -654,6 +687,7 @@
                 </div>
             </div>
 
+            <!-- プレート仕様カード (下部固定表示) -->
             <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mt-8">
                 <h3 class="font-bold text-base text-slate-800 mb-4">プレート仕様 & デフォルト目標密度</h3>
                 <div class="space-y-4">
@@ -674,12 +708,26 @@
                         <p class="text-xs text-slate-500 mt-1">HeLa / HaCaT: 5.0 × 10³ cells/well</p>
                         <p class="text-xs text-slate-500">Caco-2: 1.0 × 10⁴ cells/well</p>
                     </div>
+                    <!-- ★ 修正：Dishの推奨仕様を追記 -->
+                    <hr class="border-slate-100">
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-800">10cm dish (10 mL)</h4>
+                        <p class="text-xs text-slate-500 mt-1">HeLa / HaCaT: 3.0 × 10⁵ cells/dish</p>
+                        <p class="text-xs text-slate-500">Caco-2: 8.0 × 10⁵ cells/dish</p>
+                    </div>
+                    <hr class="border-slate-100">
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-800">6cm dish (5 mL)</h4>
+                        <p class="text-xs text-slate-500 mt-1">HeLa / HaCaT: 1.5 × 10⁵ cells/dish</p>
+                        <p class="text-xs text-slate-500">Caco-2: 4.0 × 10⁵ cells/dish</p>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 
+    <!-- ==================== AI ADVISOR VIEW ==================== -->
     <div id="view-ai" class="hidden-view">
         <div class="bg-white border-b border-slate-200">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -696,20 +744,20 @@
                 </div>
                 <div>
                     <h2 class="text-2xl font-bold text-slate-800">✨ AI実験アドバイザー</h2>
-                    <p class="text-slate-500 text-sm mt-1">研究室のSOPや備品リストに基づいて回答します。</p>
+                    <p class="text-slate-500 text-sm mt-1">研究室のSOPや一般的な知識に基づいて回答します。</p>
                 </div>
             </div>
 
             <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
                 <div class="mb-6">
                     <label class="block font-bold text-sm text-slate-800 mb-2">質問・相談内容</label>
-                    <textarea id="ai-input" rows="4" class="w-full border border-slate-300 rounded-xl p-4 focus:ring-2 focus:ring-[#c026d3] focus:outline-none text-sm resize-none shadow-inner" placeholder="例：ウェスタンブロッティングでバンドが滲む原因と対策を教えて。&#10;例：細胞培養の予約ルールを教えて。&#10;例：抗GFP抗体はどこの棚にある？"></textarea>
+                    <textarea id="ai-input" rows="4" class="w-full border border-slate-300 rounded-xl p-4 focus:ring-2 focus:ring-[#c026d3] focus:outline-none text-sm resize-none shadow-inner" placeholder="例：ウェスタンブロッティングでバンドが滲む原因と対策を教えてください。&#10;例：細胞培養の予約ルールを教えて。"></textarea>
                 </div>
                 
                 <button id="ai-btn" onclick="askGemini()" class="w-full sm:w-auto px-8 py-3.5 bg-[#c026d3] hover:bg-[#a21caf] text-white font-bold rounded-xl transition-colors shadow-sm flex items-center justify-center gap-2">
                     <i data-lucide="sparkles" class="w-4 h-4"></i> AIに相談する
                 </button>
-                
+
                 <div class="mt-4 flex justify-end">
                     <button onclick="refreshInventoryCache()" class="text-xs font-bold text-slate-400 hover:text-[#c026d3] flex items-center gap-1.5 transition-colors border border-slate-200 px-3 py-1.5 rounded-full bg-slate-50 hover:bg-magenta-50 shadow-sm">
                         <i data-lucide="refresh-cw" class="w-3 h-3"></i> 備品・SOPデータを最新に更新する
@@ -721,6 +769,7 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 mt-12 py-8 flex flex-col items-center">
         <p class="text-sm text-slate-500 mb-4">&copy; 2026 Hara lab. All rights reserved.</p>
         <button onclick="forceUpdateApp()" class="text-xs font-bold text-slate-400 hover:text-[#359b6c] flex items-center gap-1.5 transition-colors border border-slate-200 px-3 py-1.5 rounded-full bg-slate-50 hover:bg-green-50 shadow-sm">
@@ -728,6 +777,7 @@
         </button>
     </footer>
 
+    <!-- Scripts -->
     <script>
         lucide.createIcons();
 
@@ -748,19 +798,22 @@
                     globalDynamicRules = data.rules;
                 }
                 
+                // お知らせデータのパース
                 if (data.news) {
                     if(data.news.trim() === "お知らせはありません。" || data.news.trim() === "お知らせ情報の取得に失敗、またはお知らせ用ドキュメントIDが設定されていません。") {
                         globalNewsData = [];
                     } else {
+                        // 行の先頭が日付（2026/04/06 など）で始まるかどうかを基準にして記事を分割
                         let blocks = [];
                         const lines = data.news.split('\n');
-                        const dateRegex = /^20\d{2}\/\d{1,2}\/\d{1,2}/; 
+                        const dateRegex = /^20\d{2}\/\d{1,2}\/\d{1,2}/;
 
                         let currentTitle = "";
                         let currentContent = [];
 
                         for (let i = 0; i < lines.length; i++) {
                             let line = lines[i].trim();
+                            
                             if (dateRegex.test(line) || (line !== "" && currentTitle === "")) {
                                 if (currentTitle !== "") {
                                     blocks.push({ title: currentTitle, content: currentContent.join('\n').trim() });
@@ -776,6 +829,7 @@
                         if (currentTitle !== "") {
                             blocks.push({ title: currentTitle, content: currentContent.join('\n').trim() });
                         }
+                        
                         globalNewsData = blocks;
                     }
 
@@ -790,7 +844,11 @@
             }
         }
         
-        window.addEventListener('DOMContentLoaded', fetchDynamicData);
+        // ★ 修正：DOMロード時にwell選択ボタンを描画するように追加
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchDynamicData();
+            renderWellButtons(document.getElementById('w-plate').value);
+        });
 
         // ==================== News UI Logic ====================
         function renderNewsTicker() {
@@ -856,7 +914,6 @@
                             <h3 class="font-bold text-slate-800 text-base pr-4 leading-snug">${item.title}</h3>
                             ${!isExpanded && item.content ? `<i data-lucide="chevron-down" id="news-icon-${index}" class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 mt-0.5"></i>` : ''}
                         </button>
-                        
                         ${item.content ? `
                             <div id="news-content-${index}" class="px-5 pb-5 pt-1 text-sm text-slate-600 whitespace-pre-wrap leading-relaxed ${isExpanded ? '' : 'hidden'}">
                                 ${item.content}
@@ -872,7 +929,7 @@
             if(currentNewsMode === 'expanded') return;
             const content = document.getElementById(`news-content-${index}`);
             const icon = document.getElementById(`news-icon-${index}`);
-            if(!content) return; 
+            if(!content) return;
 
             if(content.classList.contains('hidden')) {
                 content.classList.remove('hidden');
@@ -887,7 +944,6 @@
 
 
         // ==================== AI Advisor Logic ====================
-        // ★ リトライ回数を 1 に変更
         async function fetchWithRetry(url, options, maxRetries = 1) {
             let delay = 1000;
             for (let i = 0; i < maxRetries; i++) {
@@ -918,32 +974,39 @@
             
             try {
                 const payload = { message: input };
-                
                 const response = await fetchWithRetry(rulesApiUrl, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'text/plain' }, 
+                    headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify(payload)
                 });
-                
                 const data = await response.json();
                 
                 if (data.error) {
+                    let errorMessage = typeof data.error === 'string' ? data.error : (data.error.message || JSON.stringify(data.error));
+                    let userFriendlyMessage = "※GASのスクリプト側でAPIキーが正しく設定されていないか、GAS内のモデル名が誤っています。";
+                    let errorTitle = "⚠️ エラーが発生しました";
+                    let errorColor = "red";
+
+                    if (errorMessage.includes("experiencing high demand") || errorMessage.includes("Quota") || errorMessage.includes("503") || errorMessage.includes("429")) {
+                        userFriendlyMessage = "※現在GoogleのAIサーバーが世界的に混み合っています。1〜2分ほど時間をおいてから、再度お試しください。";
+                        errorTitle = "⏳ AIサーバー混雑中";
+                        errorColor = "amber";
+                    }
+
                     resultDiv.innerHTML = `
-                        <div class="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200">
-                            <p class="font-bold mb-2">⚠️ エラーが発生しました</p>
-                            <p class="text-sm font-mono bg-white p-2 rounded border border-red-100 mb-2">${data.error}</p>
-                            <p class="text-xs text-slate-700">※GASのスクリプト側でAPIキーが正しく設定されていないか、GAS内のモデル名が誤っています。</p>
+                        <div class="bg-${errorColor}-50 text-${errorColor}-700 p-4 rounded-lg border border-${errorColor}-200">
+                            <p class="font-bold mb-2 flex items-center gap-1.5">${errorTitle}</p>
+                            <p class="text-xs font-mono bg-white p-2 rounded border border-${errorColor}-100 mb-2 break-all">${errorMessage}</p>
+                            <p class="text-xs font-bold">${userFriendlyMessage}</p>
                         </div>`;
                 } else if (data.text) {
                     let text = data.text;
                     
-                    // URLを検索して<a>タグに置き換える正規表現
                     const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
                     text = text.replace(urlRegex, function(url) {
                         return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline break-all">${url}</a>`;
                     });
 
-                    // 改行を<br>に変換
                     const formattedText = text.replace(/\n/g, '<br>');
 
                     resultDiv.innerHTML = `
@@ -965,12 +1028,11 @@
             }
         }
 
-        // 【追加】手動でキャッシュをクリアする関数
         async function refreshInventoryCache() {
             if (!confirm("スプレッドシートやSOPの最新情報を読み込み直しますか？\n（次回のAI回答時に少し時間がかかります）")) return;
 
             const resultDiv = document.getElementById('ai-result');
-            resultDiv.innerHTML = `<div class="text-center py-4 bg-slate-50 rounded-xl border border-slate-100"><p class="text-xs font-bold text-slate-500">キャッシュをクリア中...</p></div>`;
+            resultDiv.innerHTML = `<div class="text-center py-4 bg-slate-50 rounded-xl border border-slate-100"><p class="text-xs font-bold text-slate-500">データを更新中...</p></div>`;
             resultDiv.classList.remove('hidden');
 
             try {
@@ -981,11 +1043,12 @@
                 });
                 const data = await response.json();
                 if (data.success) {
-                    alert("更新準備が完了しました。次回の質問から最新のデータが反映されます。");
+                    alert("更新が完了しました。次回の質問から最新のデータが反映されます。");
                     resultDiv.classList.add('hidden');
                 }
             } catch (e) {
                 alert("通信エラーが発生しました。");
+                resultDiv.classList.add('hidden');
             }
         }
 
@@ -1156,12 +1219,13 @@
             }
         });
 
+        // ★ 修正：Dishの推奨播種数を更新
         const specs = {
             '12w': { vol: 1, targets: { hela: 60000, caco2: 120000 } },
             '24w': { vol: 0.5, targets: { hela: 30000, caco2: 60000 } },
             '96w': { vol: 0.1, targets: { hela: 5000, caco2: 10000 } },
-            '10cm': { vol: 10, targets: { hela: 1000000, caco2: 2000000 } },
-            '6cm': { vol: 5, targets: { hela: 300000, caco2: 600000 } }
+            '10cm': { vol: 10, targets: { hela: 300000, caco2: 800000 } },
+            '6cm': { vol: 5, targets: { hela: 150000, caco2: 400000 } }
         };
 
         function calculateWell() {
@@ -1175,8 +1239,8 @@
             const conc = avg * 10000;
             const targetPerWell = specs[plateType].targets[cellType];
             const totalCellsNeeded = targetPerWell * wells;
-            const suspVolNeeded = totalCellsNeeded / conc; 
-            const totalMediaVol = specs[plateType].vol * wells; 
+            const suspVolNeeded = totalCellsNeeded / conc; // mL
+            const totalMediaVol = specs[plateType].vol * wells; // mL
             
             const suspVolUL = Math.round(suspVolNeeded * 1000);
             const suspVolML_rounded = Math.round(suspVolNeeded * 20) / 20; 
@@ -1212,8 +1276,6 @@
             }
         });
 
-        const confRef = { hela: 10000000, caco2: 15000000 };
-
         function calculateDish() {
             let conc = 0, avg = 0;
             const cellType = document.getElementById('d-cell').value;
@@ -1230,17 +1292,30 @@
                 avg = (c1+c2+c3+c4)/4;
                 conc = avg * 10000;
             } else {
-                const rateStr = document.getElementById('d-conf-rate').value;
-                if(!rateStr) return alert("コンフル率を選択してください。");
-                const rate = parseInt(rateStr) / 100;
-                const estimatedTotal = confRef[cellType] * rate;
+                // ★ 修正：コンフル率からのスプリット比ベースの計算
+                const rateVal = document.getElementById('d-conf-rate').value;
+                if(!rateVal) return alert("コンフル率を選択してください。");
+
+                const splitRatioObj = {
+                    hela: { '90': 12, '80': 10, '60': 8, '50': 0 },
+                    caco2: { '90': 8, '80': 6, '60': 4, '50': 0 }
+                };
+                const splitRatio = splitRatioObj[cellType][rateVal];
+
+                if (splitRatio === 0) {
+                    return alert("継代非推奨です。2〜3日経ってこの状況であれば研究員等に相談してください。");
+                }
+
+                // スプリット比から細胞濃度を逆算（古いdishを10cmとし、10mLで懸濁したと仮定）
+                const targetFor10cm = specs['10cm'].targets[cellType];
+                const estimatedTotal = targetFor10cm * splitRatio;
                 conc = estimatedTotal / 10.0;
             }
 
             const targetPerDish = specs[dishType].targets[cellType];
             const totalCellsNeeded = targetPerDish * dishes;
-            const suspVolNeeded = totalCellsNeeded / conc; 
-            const totalMediaVol = specs[dishType].vol * dishes; 
+            const suspVolNeeded = totalCellsNeeded / conc; // mL
+            const totalMediaVol = specs[dishType].vol * dishes; // mL
 
             const suspVolUL = Math.round(suspVolNeeded * 1000);
             const suspVolML_rounded = Math.round(suspVolNeeded * 20) / 20; 
@@ -1254,7 +1329,15 @@
             if(isHemo) {
                 stepsHtml += makeStep(1, "血球計算盤から細胞濃度を計算", `平均値 = ${avg.toFixed(1)}`, `細胞濃度 = 平均値 × 10⁴ = ${toSci(conc)} cells/mL`);
             } else {
-                stepsHtml += makeStep(1, "コンフル率から細胞濃度の推定", `10cm dishの推定最大細胞数: ${toSci(confRef[cellType])}<br>コンフル率: ${document.getElementById('d-conf-rate').value}%`, `推定細胞濃度(10mL懸濁) = ${toSci(conc)} cells/mL`);
+                const rateVal = document.getElementById('d-conf-rate').value;
+                const splitRatioObj = { hela: { '90': 12, '80': 10, '60': 8 }, caco2: { '90': 8, '80': 6, '60': 4 } };
+                const splitRatio = splitRatioObj[cellType][rateVal];
+                const rateText = document.getElementById('d-conf-rate').options[document.getElementById('d-conf-rate').selectedIndex].text;
+                const cellName = cellType === 'hela' ? 'HeLa/HaCaT' : 'Caco-2';
+
+                stepsHtml += makeStep(1, "コンフル率からの推定（スプリット比基準）", 
+                    `コンフル率: ${rateText}<br>${cellName} の最適スプリット比: 1:${splitRatio}<br>古い10cm dishの推定細胞数: ${toSci(specs['10cm'].targets[cellType] * splitRatio)} cells`, 
+                    `推定細胞濃度(10mL懸濁) = ${toSci(conc)} cells/mL`);
             }
             stepsHtml += makeStep(2, "目標密度と必要細胞数", `目標密度: ${toSci(targetPerDish)} cells/dish<br>必要なdish数: ${dishes}`, `総必要細胞数 = ${toSci(totalCellsNeeded)} cells`);
             stepsHtml += makeStep(3, "元の懸濁液から取る量", `懸濁液量 = 総必要細胞数 / 細胞濃度`, `懸濁液量 = ${suspVolUL.toFixed(1)} µL ( ${suspVolML_rounded.toFixed(2)} mL )`);
@@ -1265,8 +1348,8 @@
 
         // ==================== REAGENT MODE ====================
         const unitMultipliersMol = { 'M': 1e9, 'mM': 1e6, 'uM': 1e3, 'nM': 1 };
-        const unitMultipliersMass = { 'mg': 1e6, 'ug': 1e3, 'ng': 1 }; 
-        const unitMultipliersVol = { 'L': 1e6, 'mL': 1e3, 'uL': 1 }; 
+        const unitMultipliersMass = { 'mg': 1e6, 'ug': 1e3, 'ng': 1 }; // Base: ng/mL
+        const unitMultipliersVol = { 'L': 1e6, 'mL': 1e3, 'uL': 1 }; // Base: uL
 
         function calculateDilutionSimple(c1_base, c2_base, v2_uL) {
             let req_uL = v2_uL * (c2_base / c1_base);
